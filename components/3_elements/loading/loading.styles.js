@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import defaultTheme from '../../styles/theme'
+import defaultTheme from '../../../styles/theme'
 
 export const LoadingStyles = styled('div')`
     position: fixed;

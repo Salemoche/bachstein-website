@@ -8,18 +8,18 @@ import { defaultStore } from '../../state/store';
 import { useSnapshot } from 'valtio';
 
 // Components
-import LayoutComponent from '../../components/layout/layout.component';
+import LayoutComponent from '../../../components/layout/layout.component';
 
 // Styling
-import { ContentStyles, WPBlockStyles } from '../../styles/global-components.styles';
+import { ContentStyles, WPBlockStyles } from '../../../styles/global-components.styles';
 
 // Animation
 import { motion } from 'framer-motion';
-import { getWordpressBlock } from '../../utils/helpers';
-import LightboxComponent from '../../components/lightbox/lightbox.component';
+import { getWordpressBlock } from '../../../utils/helpers';
+import LightboxComponent from '../../../components/lightbox/lightbox.component';
 
 // Hooks
-import { useModal } from '../../utils/hooks';
+import { useModal } from '../../../utils/hooks';
 
 
 

@@ -13,11 +13,15 @@ import { ContentStyles } from '../styles/global-components.styles';
 
 // Animation
 import { motion } from 'framer-motion';
+import { useTranslation } from '../utils/hooks';
 
-export default function Home({ content, mainMenu, footerMenu, baseUrl, siteName }) {
+export default function Home({ translations, mainMenu, footerMenu, baseUrl, siteName }) {
 
-    const { deviceDetector } = useSnapshot( defaultStore );
+    const { deviceDetector, router } = useSnapshot( defaultStore );
+    const content = useTranslation( translations, 'en_US');
     const { title } = content;
+    const { strapline } = content.home;
+
 
     // Set site state
 
@@ -31,6 +35,7 @@ export default function Home({ content, mainMenu, footerMenu, baseUrl, siteName 
     }, [])
 
     useEffect(() => {
+        console.log( defaultStore, deviceDetector );
         // console.log( env )
     }, [ content ])
 
@@ -51,8 +56,8 @@ export default function Home({ content, mainMenu, footerMenu, baseUrl, siteName 
             >
                 <section>
                     <ContentStyles className="bs-content">
-                        <h1>Hello, world, this is the { title } page</h1>
-                        <p> The device size is { deviceDetector.size } </p>
+                        <h1>Bachstein</h1>
+                        <p>{ strapline }</p>
                     </ContentStyles>
                 </section>
             </LayoutComponent>
@@ -75,10 +80,18 @@ export const getStaticProps = async() => {
     const menus = result.data.menus.nodes;
     const mainMenu = menus.filter( (menu) => (menu.slug === 'main-menu') );
     const footerMenu = menus.filter( (menu) => (menu.slug === 'footer-menu') );
+    const translations = {
+        de: homePage[0]
+    }
+
+    homePage[0].translated.forEach(translation => {
+        translations[translation.locale?.locale] = translation
+    });
     
     return {
         props: {
-            content: homePage[0],
+            translations,
+            // content: homePage[0],
             mainMenu: mainMenu[0] || {},
             footerMenu: footerMenu[0] || {},
             baseUrl,

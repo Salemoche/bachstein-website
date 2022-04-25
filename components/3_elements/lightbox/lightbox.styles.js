@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { IconStyles } from '../../styles/global-components.styles';
-import defaultTheme from '../../styles/theme';
+import { IconStyles } from '../../../styles/global-components.styles';
+import defaultTheme from '../../../styles/theme';
 
 export const LightboxStyles = styled('div')`
     position: fixed;

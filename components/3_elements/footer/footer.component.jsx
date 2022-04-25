@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react'
 import Link from 'next/link';
 
 // Data
-import { defaultStore } from '../../state/store';
+import { defaultStore } from '../../../state/store';
 
 // Style
 import { FooterStyles } from './footer.styles';

@@ -3,16 +3,16 @@ import React, { useRef, useEffect, useState } from 'react'
 import Link from 'next/link';
 
 // Data
-import { defaultStore } from '../../state/store';
+import { defaultStore } from '../../../state/store';
 import { useSnapshot } from 'valtio';
 
 // Components
 import { NavigationStyles, MenuIconStyles } from './navigation.styles';
-import { IconStyles } from '../../styles/global-components.styles';
+import { IconStyles } from '../../../styles/global-components.styles';
 
 // Misc
-import HamburgerIcon from '../../public/img/icons/hamburger.svg';
-import CrossIcon from '../../public/img/icons/cross.svg';
+import HamburgerIcon from '../../../public/img/icons/hamburger.svg';
+import CrossIcon from '../../../public/img/icons/cross.svg';
 
 // Animation
 import { motion } from 'framer-motion';

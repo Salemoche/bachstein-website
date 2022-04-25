@@ -11,13 +11,13 @@ import { useCookies } from 'react-cookie'
 import { ThemeProvider } from 'styled-components'
 import defaultTheme, { baseTheme, invertedTheme } from '../styles/theme';
 import GlobalStyles from '../styles/global.styles.js';
-import LoadingComponent from '../components/loading/loading.component';
+import LoadingComponent from '../components/3_elements/loading/loading.component';
 
 //Animation
 import { AnimatePresence, motion, useViewportScroll } from 'framer-motion';
 import Scrollbar, { ScrollbarOptions } from 'smooth-scrollbar';
-import CookieNotice from '../components/cookie-notice/cookie-notice.component';
-import DebugControls from '../components/debug/debug-controls.component';
+import CookieNotice from '../components/3_elements/cookie-notice/cookie-notice.component';
+import DebugControls from '../components/3_elements/debug/debug-controls.component';
 
 
 // export function reportWebVitals(metric) {
@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }) {
     const { scrollY, scrollYProgress } = useViewportScroll();
     const [cookies, setCookie, removeCookie] = useCookies(['bs-agrees-to-cookies']);
     const [showCookieNotice, setShowCookieNotice] = useState(false)
-    const [theme, setTheme] = useState( baseTheme )
+    const [theme, setTheme] = useState( defaultStore.theme.negative ? invertedTheme : baseTheme )
 
     
     /**========================
@@ -172,7 +172,7 @@ function MyApp({ Component, pageProps }) {
                 </motion.div>
             }
             </AnimatePresence>
-            { false &&
+            { defaultStore.debug &&
                 <motion.div
                     drag
                     dragMomentum={ false }

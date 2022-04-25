@@ -6,9 +6,9 @@ import { defaultStore } from '../../state/store';
 import { useSnapshot } from 'valtio';
 
 // Components
-import MetaComponent from '../meta/meta.component';
-import NavigationComponent from '../navigation/navigation.component';
-import FooterComponent from '../footer/footer.component';
+import MetaComponent from '../3_elements/meta/meta.component';
+import NavigationComponent from '../3_elements/navigation/navigation.component';
+import FooterComponent from '../3_elements/footer/footer.component';
 import { useState } from 'react';
 
 // Hooks

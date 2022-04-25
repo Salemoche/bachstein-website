@@ -32,6 +32,9 @@ export const PAGE_QUERY = () => {
                 title
                 slug
                 isFrontPage
+                locale {
+                    locale
+                }
                 excerpt
                 content
                 blocks {
@@ -47,6 +50,9 @@ export const PAGE_QUERY = () => {
                         order
                         attributesJSON
                     }
+                }
+                home {
+                    strapline
                 }
                 seo {
                     canonical
@@ -83,6 +89,73 @@ export const PAGE_QUERY = () => {
                                 name
                                 height
                                 width
+                            }
+                        }
+                    }
+                }
+                translated {
+                    id
+                    title
+                    slug
+                    isFrontPage
+                    locale {
+                        locale
+                    }
+                    excerpt
+                    content
+                    blocks {
+                        name
+                        originalContent
+                        saveContent
+                        order
+                        attributesJSON
+                        innerBlocks {
+                            name
+                            originalContent
+                            saveContent
+                            order
+                            attributesJSON
+                        }
+                    }
+                    home {
+                        strapline
+                    }
+                    seo {
+                        canonical
+                        cornerstone
+                        focuskw
+                        fullHead
+                        metaDesc
+                        metaKeywords
+                        metaRobotsNofollow
+                        metaRobotsNoindex
+                        opengraphAuthor
+                        opengraphDescription
+                        opengraphModifiedTime
+                        opengraphPublishedTime
+                        opengraphPublisher
+                        opengraphSiteName
+                        opengraphTitle
+                        opengraphType
+                        opengraphUrl
+                        readingTime
+                        title
+                        twitterDescription
+                        twitterTitle
+                    }
+                    featuredImage {
+                        node {
+                            altText
+                            mediaItemUrl
+                            mediaDetails {
+                                height
+                                width
+                                sizes {
+                                    sourceUrl
+                                    name
+                                    height
+                                    width
+                                }
                             }
                         }
                     }
@@ -164,6 +237,9 @@ export const POST_QUERY = ( slug ) => {
                 saveContent
                 order
                 attributesJSON
+            }
+            locale {
+                locale
             }
             seo {
                     canonical

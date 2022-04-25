@@ -1,10 +1,21 @@
 import React, { useState } from 'react'
-import ButtonComponent from '../atoms/button/button.component'
+import ButtonComponent from '../../1_atoms/button/button.component'
 import { DebugControlsStyles } from './debug-controls.styles'
+import { defaultStore } from '../../../state/store';
 
 const DebugControls = ({ handleClick }) => {
 
     const [isGrabbing, setIsGrabbing] = useState(false)
+    
+    const state = {
+        ...defaultStore,
+        router: {
+            ...defaultStore.router,
+            components: {}
+        }
+    }
+
+    console.log(state)
 
     return (
         <DebugControlsStyles 
@@ -18,6 +29,9 @@ const DebugControls = ({ handleClick }) => {
                 handleClick={ handleClick } 
                 isGrabbing={ isGrabbing }    
             />
+            <pre className="state">
+                { JSON.stringify(state, null, 2)}
+            </pre>
         </DebugControlsStyles>
     )
 }

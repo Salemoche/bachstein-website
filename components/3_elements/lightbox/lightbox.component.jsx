@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import image, { Image } from 'next/image';
 
 // Helpers
-import { getImageSizeFromWPUrl } from '../../utils/helpers';
+import { getImageSizeFromWPUrl } from '../../../utils/helpers';
 
 // Styles
 import { CloseButtonStyles, LightboxStyles } from './lightbox.styles';
@@ -12,7 +12,7 @@ import { CloseButtonStyles, LightboxStyles } from './lightbox.styles';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Misc
-import CrossIcon from '../../public/img/icons/cross.svg';
+import CrossIcon from '../../../public/img/icons/cross.svg';
 
 function LightboxComponent({ 
     content, 

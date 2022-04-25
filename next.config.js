@@ -8,7 +8,11 @@ module.exports = {
         return config;
     },
     images: {
-        domains: ['default.bachstein.ch'],
+        domains: [process.env.NEXT_PUBLIC_WP_DOMAIN],
         // formats: ['image/avif', 'image/webp, 'image/jpg', 'image/png'],
     },
+    i18n: {
+        locales: ['de', 'en-US'],
+        defaultLocale: 'de',
+    }
 }

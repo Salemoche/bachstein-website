@@ -1,13 +1,13 @@
 import React from 'react'
 
 // Data
-import { defaultStore } from '../../state/store';
+import { defaultStore } from '../../../state/store';
 
 // Style
 import { CookieNoticeStyles } from './cookie-notice.styles';
 
 // Components
-import ButtonComponent from '../atoms/button/button.component';
+import ButtonComponent from '../../1_atoms/button/button.component';
 
 
 const CookieNotice = ({ handleClick }) => {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import defaultTheme from '../../styles/theme'
+import defaultTheme from '../../../styles/theme'
 
 export const DebugControlsStyles = styled('div')`
     /* position: fixed; */
@@ -11,4 +11,10 @@ export const DebugControlsStyles = styled('div')`
     border-radius: ${ props => props.theme.borderRadii[3] };
 
     cursor: ${ props => props.isGrabbing ? 'grabbing' : 'grab' };
+
+    .state {
+        width: 400px;
+        overflow: scroll;
+        color: ${ props => props.theme.fontColorInverted };
+    }
 `

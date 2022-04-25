@@ -4,7 +4,7 @@ import defaultTheme from '../styles/theme';
 import { getWordpressImage } from './helpers';
 
 // Components
-import LightboxComponent from '../components/lightbox/lightbox.component';
+import LightboxComponent from '../components/3_elements/lightbox/lightbox.component';
 
 export const useDeviceDetector = () => {
 
@@ -234,4 +234,22 @@ export const useModal = () => {
         //TODO: check double current
         modalContent: modalContentExport
     }
+}
+
+export const useTranslation = ( translations, siteLocale ) => {
+
+    let translated = translations['de_CH'] || translations['de_DE'] || translations['de'];
+
+    for (const locale in translations) {
+        if (Object.hasOwnProperty.call(translations, locale)) { 
+            console.log(siteLocale.includes('en'), locale.includes('en'))           
+            if ( siteLocale.includes('en') && locale.includes('en')) {
+                translated = translations[locale]
+            }
+        }
+    }
+    
+    console.log(translated.locale.locale)
+
+    return translated;
 }
