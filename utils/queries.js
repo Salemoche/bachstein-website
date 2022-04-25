@@ -50,9 +50,61 @@ export const PAGE_QUERY = () => {
                         order
                         attributesJSON
                     }
-                }
+                }  
                 home {
+                    ctaButtonText
+                    ctaHeader
+                    ctaImage {
+                        altText
+                        mediaItemUrl
+                        srcSet
+                        mediaDetails {
+                            height
+                            width
+                            sizes {
+                                sourceUrl
+                                name
+                                height
+                                width
+                            }
+                        }
+                    }
+                    ctaText
+                    fieldGroupName
+                    headerImage {
+                        altText
+                        mediaItemUrl
+                        srcSet
+                        mediaDetails {
+                            height
+                            width
+                            sizes {
+                                sourceUrl
+                                name
+                                height
+                                width
+                            }
+                        }
+                    }
+                    introText
+                    introImage {
+                        altText
+                        mediaItemUrl
+                        srcSet
+                        mediaDetails {
+                            height
+                            width
+                            sizes {
+                                sourceUrl
+                                name
+                                height
+                                width
+                            }
+                        }
+                    }
+                    introHeader
                     strapline
+                    clientsTitle
                 }
                 seo {
                     canonical
@@ -81,6 +133,7 @@ export const PAGE_QUERY = () => {
                     node {
                         altText
                         mediaItemUrl
+                        srcSet
                         mediaDetails {
                             height
                             width
@@ -147,6 +200,7 @@ export const PAGE_QUERY = () => {
                         node {
                             altText
                             mediaItemUrl
+                            srcSet
                             mediaDetails {
                                 height
                                 width
@@ -183,6 +237,7 @@ export const PAGE_QUERY = () => {
             nodes {
                 databaseId
                 mediaItemUrl
+                srcSet
                 mediaDetails {
                     width,
                     height
@@ -268,6 +323,7 @@ export const POST_QUERY = ( slug ) => {
                 node {
                     altText
                     mediaItemUrl
+                    srcSet
                     mediaDetails {
                         sizes {
                             sourceUrl
@@ -298,6 +354,7 @@ export const POST_QUERY = ( slug ) => {
             nodes {
                 databaseId
                 mediaItemUrl
+                srcSet
                 mediaDetails {
                     width,
                     height
@@ -319,6 +376,51 @@ export const POSTS_QUERY = () => {
                 id
                 title
                 slug
+            }
+        }
+    }`
+}
+
+export const CLIENTS_QUERY = () => {
+    return gql `
+    query MyQuery {
+        kunden(last: 1000) {
+            nodes {
+                id
+                title
+                slug
+                kunden {
+                    logoLight {
+                        altText
+                        mediaItemUrl
+                        srcSet
+                        mediaDetails {
+                            height
+                            width
+                            sizes {
+                                sourceUrl
+                                name
+                                height
+                                width
+                            }
+                        }
+                    }
+                    logoDark {
+                        altText
+                        mediaItemUrl
+                        srcSet
+                        mediaDetails {
+                            height
+                            width
+                            sizes {
+                                sourceUrl
+                                name
+                                height
+                                width
+                            }
+                        }
+                    }
+                }
             }
         }
     }`

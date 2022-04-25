@@ -6,58 +6,77 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
 
-    /* lato-regular - latin */
-    @font-face {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    src: url('/fonts/lato-v20-latin/lato-v20-latin-regular.eot'); /* IE9 Compat Modes */
-    src: local(''),
-        url('/fonts/lato-v20-latin/lato-v20-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('/fonts/lato-v20-latin/lato-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-        url('/fonts/lato-v20-latin/lato-v20-latin-regular.woff') format('woff'), /* Modern Browsers */
-        url('/fonts/lato-v20-latin/lato-v20-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('/fonts/lato-v20-latin/lato-v20-latin-regular.svg#Lato') format('svg'); /* Legacy iOS */
-        font-display: swap;
-    }
+@font-face {
+font-family: 'Pangram';
+font-style: normal;
+font-weight: 400;
+${'' /* src: url('/fonts/lato-v20-latin/lato-v20-latin-regular.eot');  */}
+src: local(''),
+    url('/fonts/pangram/Pangram-Regular.otf') format('opentype'),
+    font-display: swap;
+}
 
-    /* lato-italic - latin */
-    @font-face {
-    font-family: 'Lato';
-    font-style: italic;
-    font-weight: 400;
-    src: url('/fonts/lato-v20-latin/lato-v20-latin-italic.eot'); /* IE9 Compat Modes */
-    src: local(''),
-        url('/fonts/lato-v20-latin/lato-v20-latin-italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('/fonts/lato-v20-latin/lato-v20-latin-italic.woff2') format('woff2'), /* Super Modern Browsers */
-        url('/fonts/lato-v20-latin/lato-v20-latin-italic.woff') format('woff'), /* Modern Browsers */
-        url('/fonts/lato-v20-latin/lato-v20-latin-italic.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('/fonts/lato-v20-latin/lato-v20-latin-italic.svg#Lato') format('svg'); /* Legacy iOS */
-        font-display: swap;
-    }
+@font-face {
+font-family: 'Millik';
+font-style: normal;
+font-weight: 400;
+${'' /* src: url('/fonts/lato-v20-latin/lato-v20-latin-regular.eot');  */}
+src: local(''),
+    url('/fonts/millik/Millik.otf') format('opentype'),
+    url('/fonts/millik/Millik.ttf') format('truetype'),
+    font-display: swap;
+}
 
-    /* lato-700 - latin */
-    @font-face {
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 700;
-    src: url('/fonts/lato-v20-latin/lato-v20-latin-700.eot'); /* IE9 Compat Modes */
-    src: local(''),
-        url('/fonts/lato-v20-latin/lato-v20-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('/fonts/lato-v20-latin/lato-v20-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
-        url('/fonts/lato-v20-latin/lato-v20-latin-700.woff') format('woff'), /* Modern Browsers */
-        url('/fonts/lato-v20-latin/lato-v20-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
-        url('/fonts/lato-v20-latin/lato-v20-latin-700.svg#Lato') format('svg'); /* Legacy iOS */
-        font-display: swap;
-    }
+${'' /* 
+@font-face {
+font-family: 'Lato';
+font-style: normal;
+font-weight: 400;
+src: url('/fonts/lato-v20-latin/lato-v20-latin-regular.eot'); 
+src: local(''),
+    url('/fonts/lato-v20-latin/lato-v20-latin-regular.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/lato-v20-latin/lato-v20-latin-regular.woff2') format('woff2'), 
+    url('/fonts/lato-v20-latin/lato-v20-latin-regular.woff') format('woff'), 
+    url('/fonts/lato-v20-latin/lato-v20-latin-regular.ttf') format('truetype'), 
+    url('/fonts/lato-v20-latin/lato-v20-latin-regular.svg#Lato') format('svg'); 
+    font-display: swap;
+}
+
+@font-face {
+font-family: 'Lato';
+font-style: italic;
+font-weight: 400;
+src: url('/fonts/lato-v20-latin/lato-v20-latin-italic.eot'); 
+src: local(''),
+    url('/fonts/lato-v20-latin/lato-v20-latin-italic.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/lato-v20-latin/lato-v20-latin-italic.woff2') format('woff2'), 
+    url('/fonts/lato-v20-latin/lato-v20-latin-italic.woff') format('woff'), 
+    url('/fonts/lato-v20-latin/lato-v20-latin-italic.ttf') format('truetype'), 
+    url('/fonts/lato-v20-latin/lato-v20-latin-italic.svg#Lato') format('svg'); 
+    font-display: swap;
+}
+
+@font-face {
+font-family: 'Lato';
+font-style: normal;
+font-weight: 700;
+src: url('/fonts/lato-v20-latin/lato-v20-latin-700.eot'); 
+src: local(''),
+    url('/fonts/lato-v20-latin/lato-v20-latin-700.eot?#iefix') format('embedded-opentype'),
+    url('/fonts/lato-v20-latin/lato-v20-latin-700.woff2') format('woff2'), 
+    url('/fonts/lato-v20-latin/lato-v20-latin-700.woff') format('woff'), 
+    url('/fonts/lato-v20-latin/lato-v20-latin-700.ttf') format('truetype'), 
+    url('/fonts/lato-v20-latin/lato-v20-latin-700.svg#Lato') format('svg'); 
+    font-display: swap;
+} */}
     
     html,
     body {
         padding: 0;
         margin: 0;
         width: 100vw;
-        font-size: ${ props => props.theme.fontSizeS }px;
-        font-family: ${ props => props.theme.fontFamilyDefault };
+        font-size: ${ props => props.theme.fontSizeS };
+        font-family: ${ props => props.theme.fontFamilies[0] };
         color: ${ props => props.theme.fontColor };
     }
 
@@ -88,35 +107,36 @@ const GlobalStyles = createGlobalStyle`
     h5,
     h6 {
         margin: 0;
+        font-family: ${ props => props.theme.fontFamilies[1] };
     }
 
     h1 {
-        font-size: ${ props => props.theme.fontSizeXXL }px;
+        font-size: ${ props => props.theme.fontSizeXXL };
         margin-bottom: ${ props => props.theme.spaceS }px;
     }
 
     h2 {
-        font-size: ${ props => props.theme.fontSizeXXL }px;
+        font-size: ${ props => props.theme.fontSizeXXL };
         margin-bottom: ${ props => props.theme.spaceS }px;
     }
 
     h3 {
-        font-size: ${ props => props.theme.fontSizeXL }px;
+        font-size: ${ props => props.theme.fontSizeXL };
         margin-bottom: ${ props => props.theme.spaceXS }px;
     }
 
     h4 {
-        font-size: ${ props => props.theme.fontSizeL }px;
+        font-size: ${ props => props.theme.fontSizeL };
         margin-bottom: ${ props => props.theme.spaceXS }px;
     }
 
     h5 {
-        font-size: ${ props => props.theme.fontSizeM }px;
+        font-size: ${ props => props.theme.fontSizeM };
         margin-bottom: ${ props => props.theme.spaceXXS }px;
     }
 
     h6 {
-        font-size: ${ props => props.theme.fontSizeS }px;
+        font-size: ${ props => props.theme.fontSizeS };
     }
 
     p {
@@ -163,8 +183,8 @@ const GlobalStyles = createGlobalStyle`
     }
 
     ::selection {
-        background: ${ props => props.theme.colors.black[0] };
-        color: white;
+        background: ${ props => props.theme.selectionBackground };
+        color: ${ props => props.theme.selectionColor };
     }
     
     /**========================

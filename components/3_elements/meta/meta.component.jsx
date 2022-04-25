@@ -1,11 +1,11 @@
 import React from 'react'
 import Head from 'next/head';
 
-const MetaComponent = ({ headerTags }) => {
+const MetaComponent = ({ headTags }) => {
 
-    const { title, description, imageUrl, url, siteName } = headerTags;
+    const { title, description, imageUrl, url, siteName } = headTags;
 
-    // console.log(headerTags)
+    // console.log(headTags)
 
     return (
         <Head>

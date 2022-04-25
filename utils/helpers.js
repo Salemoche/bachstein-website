@@ -11,6 +11,7 @@ import ReactPlayer from 'react-player'
 import { v4 as uuidv4 } from 'uuid';
 import GalleryComponent from '../components/wp-blocks/gallery/gallery.component';
 import SliderComponent from '../components/wp-blocks/slider/slider.component';
+import sanitizeHtml from 'sanitize-html';
 
 // Animation
 import { motion } from 'framer-motion';
@@ -19,21 +20,28 @@ export const getWordpressImage = ( imageNode, size ) => {
     
     if ( !imageNode ) return null;
     
-    const { node: image } = imageNode;
+    // const { node: image } = imageNode;
+
+    const image = imageNode?.node?.image || imageNode; // if it's nested
+
+    if ( !image ) return null;
 
     let returnImage = {
-        url: image.mediaItemUrl,
-        altText: image.altText,
-        height: image.mediaDetails.height,
-        width: image.mediaDetails.width,
-        aspectRatio: image.mediaDetails.width / image.mediaDetails.height,
+        url: image?.mediaItemUrl,
+        altText: image?.altText,
+        height: image?.mediaDetails?.height,
+        width: image?.mediaDetails?.width,
+        aspectRatio: image?.mediaDetails?.width / image?.mediaDetails?.height,
+        srcSet: image?.srcSet,
+        imageElement: `<img src="${image?.mediaItemUrl}" srcSet="${image?.srcSet}" alt="${image?.altText}"/>`
     }
 
-    image.mediaDetails.sizes.forEach(size => {
-        returnImage[size.name] = {
-            sourceUrl: size.sourceUrl,
-            height: size.height,
-            width: size.width,
+    image?.mediaDetails?.sizes?.forEach(size => {
+        returnImage[size?.name] = {
+            sourceUrl: size?.sourceUrl,
+            height: size?.height,
+            width: size?.width,
+            imageElement: `<img src="${size?.sourceUrl}" alt="${image?.altText}"/>`
         };  
     });
 
@@ -93,7 +101,7 @@ export const getWordpressBlock = (
                         const innerAttributes = JSON.parse(innerBlock.attributesJSON)
 
                         //TODO: handle lazyloading images
-                        return <WPColumnStyles key={`wp-inner-block-${j || uuidv4()}`} className="wp-block-column" width={ innerAttributes.width } dangerouslySetInnerHTML={{ __html: innerBlock.saveContent }}/>
+                        return <WPColumnStyles key={`wp-inner-block-${j || uuidv4()}`} className="wp-block-column" width={ innerAttributes.width } dangerouslySetInnerHTML={{ __html: sanitizeHtml( innerBlock.saveContent ) }}/>
                     })}
                 </div>
             </WPColumnsStyles>
@@ -108,7 +116,7 @@ export const getWordpressBlock = (
                 }
             </WPBlockStyles>
         } else {
-            return <WPBlockStyles key={`wp-block-${i || uuidv4()}`} className={`bs-wp-block bs-wp-block-${block.name.split('/')[1]}`} dangerouslySetInnerHTML={{ __html: block.saveContent }}></WPBlockStyles>
+            return <WPBlockStyles key={`wp-block-${i || uuidv4()}`} className={`bs-wp-block bs-wp-block-${block.name.split('/')[1]}`} dangerouslySetInnerHTML={{ __html: sanitizeHtml( block.saveContent ) }}></WPBlockStyles>
         }
     } else if ( type === 'acf') {
 

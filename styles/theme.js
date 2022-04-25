@@ -1,13 +1,21 @@
 const defaultTheme = {
     breakpoints: [ 320, 414, 768, 1024, 1440, 1800 ],
     space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
-    fontSizes: [ 14, 16, 20, 24, 36, 48 ],
-    fontFamilies: [ 'Lato' ],
+    fontSizes: [
+        '0.875rem', //14px / XS
+        '1rem', //16px / S
+        '1.25rem', //20px / L
+        '1.5rem', // 24px / XL
+        '2.25rem', // 32px / XXL
+        '3rem', // 48px / XXXL
+        '9rem' // 144px / Wordmark
+    ],
+    fontFamilies: [ 'Pangram', 'Millik' ],
     lineHeights: [ 0.85, 1, 1.2, 1.5, 2 ],
     contentWidths: [ 600, 1260 ],
     colors: { 
         black: [
-            '#333'
+            '#13161C'
         ],
         white: [
             '#fff'
@@ -37,7 +45,8 @@ defaultTheme.fontSizeS = defaultTheme.fontSizes[1];
 defaultTheme.fontSizeM = defaultTheme.fontSizes[2];
 defaultTheme.fontSizeL = defaultTheme.fontSizes[3];
 defaultTheme.fontSizeXL = defaultTheme.fontSizes[4];
-defaultTheme.fontSizeXXL = defaultTheme.fontSizes[4];
+defaultTheme.fontSizeXXL = defaultTheme.fontSizes[5];
+defaultTheme.fontSizeWordmark = defaultTheme.fontSizes[6];
 defaultTheme.fontFamilyDefault = defaultTheme.fontFamilies[0];
 defaultTheme.breakpointXXL = defaultTheme.breakpoints[5]
 defaultTheme.breakpointXL = defaultTheme.breakpoints[4]
@@ -59,6 +68,8 @@ export const baseTheme = {
     linkColor: defaultTheme.colors.blue[0],
     backgroundColor: defaultTheme.colors.white[0],
     backgroundColorInverted: defaultTheme.colors.black[0],
+    selectionBackground: defaultTheme.colors.black[0],
+    selectionColor: defaultTheme.colors.white[0]
 }
 
 export const invertedTheme = {
@@ -68,6 +79,8 @@ export const invertedTheme = {
     linkColor: defaultTheme.colors.blue[0],
     backgroundColor: defaultTheme.colors.black[0],
     backgroundColorInverted: defaultTheme.colors.white[0],
+    selectionBackground: defaultTheme.colors.white[0],
+    selectionColor: defaultTheme.colors.black[0]
 }
 
 export default defaultTheme

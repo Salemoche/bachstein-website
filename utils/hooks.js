@@ -2,6 +2,7 @@ import { useEffect, useState, useRef, useMemo } from 'react';
 import DeviceDetector from "device-detector-js";
 import defaultTheme from '../styles/theme';
 import { getWordpressImage } from './helpers';
+import { defaultStore } from '../state/store';
 
 // Components
 import LightboxComponent from '../components/3_elements/lightbox/lightbox.component';
@@ -165,7 +166,7 @@ export const useDeviceDetector = () => {
 //     }
 // }
 
-export const useSiteHeader = ( baseUrl, siteName, pageContent ) => {
+export const useSiteHead = ( baseUrl, siteName, pageContent ) => {
 
     const { title, excerpt } = pageContent
     const description = pageContent.seo.opengraphDescription || ( excerpt && excerpt.replace(/(&lt;([^>]+)>)/gi, "")) || 'some description';
@@ -236,20 +237,19 @@ export const useModal = () => {
     }
 }
 
-export const useTranslation = ( translations, siteLocale ) => {
+export const useTranslation = ( translations ) => {
 
+    const siteLocale = defaultStore?.base?.lang || defaultStore?.router?.locale || 'de';
     let translated = translations['de_CH'] || translations['de_DE'] || translations['de'];
 
     for (const locale in translations) {
         if (Object.hasOwnProperty.call(translations, locale)) { 
-            console.log(siteLocale.includes('en'), locale.includes('en'))           
             if ( siteLocale.includes('en') && locale.includes('en')) {
                 translated = translations[locale]
             }
         }
     }
     
-    console.log(translated.locale.locale)
 
     return translated;
 }

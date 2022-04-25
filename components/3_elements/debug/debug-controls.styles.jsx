@@ -14,6 +14,7 @@ export const DebugControlsStyles = styled('div')`
 
     .state {
         width: 400px;
+        max-height: 80vh;
         overflow: scroll;
         color: ${ props => props.theme.fontColorInverted };
     }

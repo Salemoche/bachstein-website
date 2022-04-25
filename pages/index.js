@@ -10,6 +10,10 @@ import { useSnapshot } from 'valtio';
 // Components
 import LayoutComponent from '../components/layout/layout.component';
 import { ContentStyles } from '../styles/global-components.styles';
+import HeaderComponent from '../components/3_elements/home/header/header.component';
+import IntroComponent from '../components/3_elements/home/intro/intro.component';
+import CallToActionComponent from '../components/3_elements/home/call-to-action/call-to-action.component';
+import ClientsComponent from '../components/3_elements/home/clients/clients.component';
 
 // Animation
 import { motion } from 'framer-motion';
@@ -17,10 +21,22 @@ import { useTranslation } from '../utils/hooks';
 
 export default function Home({ translations, mainMenu, footerMenu, baseUrl, siteName }) {
 
-    const { deviceDetector, router } = useSnapshot( defaultStore );
-    const content = useTranslation( translations, 'en_US');
+    const { deviceDetector } = useSnapshot( defaultStore );
+    const content = useTranslation( translations );
     const { title } = content;
-    const { strapline } = content.home;
+    const { 
+        headerImage, 
+        strapline,
+        introImage,
+        introHeader,
+        introText,
+        ctaImage,
+        ctaHeader,
+        ctaText,
+        ctaButtonText,
+        clientsTitle,
+        clients,
+    } = content.home;
 
 
     // Set site state
@@ -55,10 +71,10 @@ export default function Home({ translations, mainMenu, footerMenu, baseUrl, site
                 // fullHead={ fullHead } // SM-TODO: SEO
             >
                 <section>
-                    <ContentStyles className="bs-content">
-                        <h1>Bachstein</h1>
-                        <p>{ strapline }</p>
-                    </ContentStyles>
+                    <HeaderComponent strapline={strapline} image={headerImage}/>
+                    <IntroComponent image={introImage} title={introHeader} text={introText} />
+                    <CallToActionComponent image={ctaImage} title={ctaHeader} text={ctaText} buttonTest={ctaButtonText} />
+                    <ClientsComponent clients={clients} title={clientsTitle} />
                 </section>
             </LayoutComponent>
         </motion.div>

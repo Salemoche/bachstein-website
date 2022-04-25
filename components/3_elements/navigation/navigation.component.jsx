@@ -17,6 +17,7 @@ import CrossIcon from '../../../public/img/icons/cross.svg';
 // Animation
 import { motion } from 'framer-motion';
 import router from 'next/router';
+import LanguageSwitcherComponent from '../../1_atoms/language-switcher/language-switcher.component';
 
 const NavigationComponent = ({ mainMenu }) => {
 
@@ -59,6 +60,7 @@ const NavigationComponent = ({ mainMenu }) => {
                 transition={{ duration: .1 }}
             >
                 { menuItems.map( menuItem => <Link key={ menuItem.path || '/' } href={ menuItem.path || '/' }><a className={`bs-menu-item${menuItem.path === defaultStore?.router?.pathName ? ' active' : ''}`}>{ menuItem.label }</a></Link>) }
+                <LanguageSwitcherComponent/>
             </motion.nav>
             { (deviceDetector.size === 'medium'|| deviceDetector.size === 'small' || deviceDetector.size === 'extra-small') &&
                 <MenuIconStyles onClick={() => {setMenuOpen( prev => !prev )} } dangerouslySetInnerHTML={{ __html: menuOpen ? CrossIcon : HamburgerIcon }} />

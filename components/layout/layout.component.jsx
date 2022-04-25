@@ -12,7 +12,7 @@ import FooterComponent from '../3_elements/footer/footer.component';
 import { useState } from 'react';
 
 // Hooks
-import { useSiteHeader } from '../../utils/hooks';
+import { useSiteHead } from '../../utils/hooks';
 
 const LayoutComponent = ({ 
     children, 
@@ -27,7 +27,7 @@ const LayoutComponent = ({
 
     const { footerHeight, headerHeight, deviceDetector } = useSnapshot( defaultStore );
     const [mainStyle, setMainStyle] = useState({})
-    const headerTags = useSiteHeader( baseUrl, siteName, content );
+    const headTags = useSiteHead( baseUrl, siteName, content );
 
     // useEffect(() => {
     //     if ( !window ) return
@@ -40,7 +40,7 @@ const LayoutComponent = ({
 
     return (
         <>
-            <MetaComponent headerTags={ headerTags }/>
+            <MetaComponent headTags={ headTags }/>
             { hasNavigation &&
                 <NavigationComponent mainMenu={ mainMenu } />
             }
