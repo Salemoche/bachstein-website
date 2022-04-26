@@ -44,5 +44,30 @@ export const HeaderStyles = styled('div')`
         }
     }
 
+    @media screen and ( max-width: ${ props => props.theme.breakpointL }px) {
+        height: 70vw;
 
+        .bs-home-header__content {
+
+            /* color: yellow; */
+
+            .bs-home-header__wordmark {
+                font-size: 14vw;
+            }
+
+            .bs-home-header__strapline {
+                font-size: ${ props => props.theme.fontSizeXL };
+            }
+        }
+    }
+
+    @media screen and ( max-width: ${ props => props.theme.breakpointM }px) {
+
+        .bs-home-header__content {
+
+            .bs-home-header__strapline {
+                font-size: ${ props => props.theme.fontSizeM };
+            }
+        }
+    }
 `

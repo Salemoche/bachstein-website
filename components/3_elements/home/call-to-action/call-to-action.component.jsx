@@ -12,8 +12,9 @@ import { GridStyles } from '../../../../styles/global-components.styles';
 
 // Components
 import ImageComponent from '../../../1_atoms/image/image.component';
+import ButtonComponent from '../../../1_atoms/button/button.component';
 
-const CallToActionComponent = ({ image, title, text }) => {
+const CallToActionComponent = ({ image, title, text, buttonText }) => {
 
     return (
         <CallToActionStyles className="bs-cta">
@@ -21,6 +22,7 @@ const CallToActionComponent = ({ image, title, text }) => {
                 <div className="bs-cta__text">
                     <h2>{ title }</h2>
                     <div dangerouslySetInnerHTML={{ __html: sanitizeHtml( text ) }}></div>
+                    <ButtonComponent link="mailto:collab@bachstein.ch" label={buttonText}/>
                 </div>
                 <div className="bs-cta__image">
                     { image && <ImageComponent image={ image } /> }

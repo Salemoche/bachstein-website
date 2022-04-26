@@ -92,12 +92,14 @@ src: local(''),
         overflow-x: hidden;
         scroll-behavior: smooth;
         height: 100vh;
-        background-color: ${ props => props.theme.backgroundColor }
+        background-color: ${ props => props.theme.backgroundColor };
+        font-size: ${ props => props.theme.fontSizeM };
     }
 
     * {
         box-sizing: border-box;
         font-display: block;
+        letter-spacing: 0.02em;
     }
 
     h1,
@@ -139,9 +141,39 @@ src: local(''),
         font-size: ${ props => props.theme.fontSizeS };
     }
 
-    p {
+    @media screen and ( max-width: ${ props => props.theme.breakpointL }px) {
+
+        h1 {
+            font-size: ${ props => props.theme.fontSizeXL };
+            ${'' /* margin-bottom: ${ props => props.theme.spaceS }px; */}
+        }
+
+        h2 {
+            font-size: ${ props => props.theme.fontSizeXL };
+            ${'' /* margin-bottom: ${ props => props.theme.spaceS }px; */}
+        }
+
+        h3 {
+            font-size: ${ props => props.theme.fontSizeL };
+            ${'' /* margin-bottom: ${ props => props.theme.spaceXS }px; */}
+        }
+
+        h4 {
+            font-size: ${ props => props.theme.fontSizeM };
+            ${'' /* margin-bottom: ${ props => props.theme.spaceXS }px; */}
+        }
+
+        h5 {
+            font-size: ${ props => props.theme.fontSizeS };
+            ${'' /* margin-bottom: ${ props => props.theme.spaceXXS }px; */}
+        }
+    }
+
+    p,
+    span {
         margin: 0;
         margin-bottom: ${ props => props.theme.spaceS }px;
+        line-height: 1.6rem;
 
         &:last-of-type {
             margin-bottom: 0;
@@ -151,6 +183,9 @@ src: local(''),
     a {
         color: ${ props => props.theme.fontColor };
         transition: ${ props => props.theme.transition[1] };
+        cursor: pointer; 
+        text-decoration: none;
+
         &:hover {
             color: ${ props => props.theme.highlightColor };
         }
@@ -177,13 +212,22 @@ src: local(''),
     button,
     input[type=submit],
     .button,
-    .wp-block-file__button {
+    .wp-block-file__button,
+    .bs-button {
         cursor: pointer;
         background: black;
         color: white;
         border-radius: ${ props => props.theme.borderRadiusXS };
-        padding: ${ props => props.theme.spaceS }px;
+        padding: ${ props => props.theme.spaceXS }px ${ props => props.theme.spaceS }px;
         text-decoration: none;
+        transition: background ${ props => props.theme.transition[2] };
+        display: inline-block;
+        background: ${ props => props.theme.colors.blue[1] };
+
+        &:hover {
+            background: ${ props => props.theme.colors.blue[2] };
+            color: white;
+        }
     }
     
     input[type=text],

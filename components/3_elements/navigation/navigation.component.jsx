@@ -7,17 +7,20 @@ import { defaultStore } from '../../../state/store';
 import { useSnapshot } from 'valtio';
 
 // Components
-import { NavigationStyles, MenuIconStyles } from './navigation.styles';
+import { NavigationStyles, MenuIconStyles, HamburgerIconStyles } from './navigation.styles';
 import { IconStyles } from '../../../styles/global-components.styles';
 
 // Misc
 import HamburgerIcon from '../../../public/img/icons/hamburger.svg';
 import CrossIcon from '../../../public/img/icons/cross.svg';
+import AboutIcon from '../../../public/img/icons/about.svg';
+import HomeIcon from '../../../public/img/icons/home.svg';
+import GlobeIcon from '../../../public/img/icons/globe.svg';
+import ColorIcon from '../../../public/img/icons/color.svg';
 
 // Animation
 import { motion } from 'framer-motion';
 import router from 'next/router';
-import LanguageSwitcherComponent from '../../1_atoms/language-switcher/language-switcher.component';
 
 const NavigationComponent = ({ mainMenu }) => {
 
@@ -27,7 +30,6 @@ const NavigationComponent = ({ mainMenu }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [showMenu, setShowMenu] = useState(true);
     const pScrollY = useRef(null);
-
 
     useEffect(() => {
         defaultStore.headerHeight = ref.current.offsetHeight || 0;
@@ -47,6 +49,29 @@ const NavigationComponent = ({ mainMenu }) => {
 
     }, [ current.scrollY, deviceDetector ])
 
+    const changeLanguage = () => {
+        let currentLanguage;
+
+        if ( defaultStore?.base?.lang?.includes('de') ) {
+            currentLanguage = 'de';
+        } else if ( defaultStore?.base?.lang?.includes('en') ) {
+            currentLanguage = 'en';
+        } else if ( defaultStore?.router?.locale?.includes('en') ) {
+            currentLanguage = 'en';
+        } else {
+            currentLanguage = 'de';
+        }
+
+        console.log(currentLanguage)
+
+        // defaultStore.base.
+    }
+
+    const changeColorMode = () => {
+        defaultStore.theme.negative = !defaultStore.theme.negative
+        console.log(defaultStore.theme)
+    }
+
 
     return (
         <NavigationStyles ref={ ref } className="bs-navigation" device={ deviceDetector } menuOpen={ menuOpen }>
@@ -54,17 +79,34 @@ const NavigationComponent = ({ mainMenu }) => {
                 className="bs-menu bs-main-menu"
                 initial={{ opacity: 0 }}
                 animate={{ 
-                    opacity: (deviceDetector.size === 'medium'|| deviceDetector.size === 'small' || deviceDetector.size === 'extra-small') && !menuOpen ? 0 : 1,
+                    opacity:  menuOpen ? 1 : 0,
                     y: showMenu ? '0%' : '-100%'
                 }}
                 transition={{ duration: .1 }}
             >
-                { menuItems.map( menuItem => <Link key={ menuItem.path || '/' } href={ menuItem.path || '/' }><a className={`bs-menu-item${menuItem.path === defaultStore?.router?.pathName ? ' active' : ''}`}>{ menuItem.label }</a></Link>) }
-                <LanguageSwitcherComponent/>
+                {/* { menuItems.map( menuItem => <Link key={ menuItem.path || '/' } href={ menuItem.path || '/' }><a className={`bs-menu-item${menuItem.path === defaultStore?.router?.pathName ? ' active' : ''}`}>{ menuItem.label }</a></Link>) } */}
+                <Link href="/">
+                    <a className={`bs-menu-item${'/' === defaultStore?.router?.pathName ? ' active' : ''}`}>
+                        Home
+                        <MenuIconStyles y="7" dangerouslySetInnerHTML={{ __html: HomeIcon }}/>
+                    </a>
+                </Link>
+                <Link href="/agb">
+                    <a className={`bs-menu-item${'/agb' === defaultStore?.router?.pathName ? ' active' : ''}`}>
+                        AGB
+                        <MenuIconStyles y="7" dangerouslySetInnerHTML={{ __html: AboutIcon }}/>
+                    </a>
+                </Link>
+                {/* <a className="bs-menu-item" onClick={changeColorMode}>
+                    { defaultStore.theme.negative ? 'light mode' : 'dark mode' }
+                    <MenuIconStyles y="7" dangerouslySetInnerHTML={{ __html: ColorIcon }}/>
+                </a> */}
+                {/* <a className="bs-menu-item" onClick={changeLanguage}>
+                    { defaultStore.router.locale == 'de' ? 'english' : 'deutsch' }
+                    <MenuIconStyles y="7" dangerouslySetInnerHTML={{ __html: GlobeIcon }}/>
+                </a> */}
             </motion.nav>
-            { (deviceDetector.size === 'medium'|| deviceDetector.size === 'small' || deviceDetector.size === 'extra-small') &&
-                <MenuIconStyles onClick={() => {setMenuOpen( prev => !prev )} } dangerouslySetInnerHTML={{ __html: menuOpen ? CrossIcon : HamburgerIcon }} />
-            }
+            <HamburgerIconStyles onClick={() => {setMenuOpen( prev => !prev )} } dangerouslySetInnerHTML={{ __html: menuOpen ? CrossIcon : HamburgerIcon }} />
         </NavigationStyles>
     )
 }

@@ -14,6 +14,12 @@ export const ContentStyles = styled('div')`
         padding: ${ props => props.theme.spaceM }px;
     }
 
+    @media screen and ( max-width: ${ props => props.theme.breakpointM }px) {
+        > * {
+            padding: ${ props => props.theme.spaceS }px;
+        }
+    }
+
 `
 
 export const GridStyles = styled('div')`
@@ -27,16 +33,33 @@ export const BlockStyles = styled('div')`
     
     width: 100%;
     padding: 0;
+    margin-bottom: ${ props => props.theme.spaceS }px;
 
     > * {
-        width: ${ props => props.theme.contentWidthL }px;
+        width: ${ props => props.theme.contentWidthM }px;
         max-width: 100%;
         margin: 0 auto;
-        padding: ${ props => props.theme.spaceM }px;
+        padding: 0 ${ props => props.theme.spaceM }px;
+    }
+
+    @media screen and ( max-width: ${ props => props.theme.breakpointM }px) {
+        > * {
+            padding: 0 ${ props => props.theme.spaceS }px;
+        }
     }
 `
 
 export const WPBlockStyles = styled(BlockStyles)`
+
+    h2,
+    h3,
+    h4 {
+        margin-top: ${ props => props.theme.spaceL }px;
+    }
+
+    a {
+        text-decoration: underline;
+    }
 
     .alignfull {
         padding: 0;
@@ -173,4 +196,8 @@ export const IconStyles = styled('div')`
         width: 100%;
         height: 100%;
     }
+`
+
+export const GutenbergPageStyles = styled.div`
+    margin-top: ${ props => props.theme.spaceL }px;
 `

@@ -21,8 +21,9 @@ const ProjectsComponent = ({ title, projects }) => {
                 { projects.map( (project, i) => {
                     return (
                         project?.acfProjekt?.mainImage && 
-                        <a href={project.acfProjekt.url} target="_blank" className="bs-projects__client" key={`project-${i}`}>
+                        <a href={project.acfProjekt.url} target="_blank" className="bs-projects__project" key={`project-${i}`}>
                             <ImageComponent image={ project.acfProjekt.mainImage }/>
+                            <h4 className="bs-projects__info">{ project.title }</h4>
                         </a> 
                     )
                 })}

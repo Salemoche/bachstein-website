@@ -112,7 +112,13 @@ function MyApp({ Component, pageProps }) {
     
     /**========================
     *	Styling
-    *========================*/    
+    *========================*/   
+   
+    useEffect(() => {
+      console.log(defaultStore.theme.negative)
+    
+    }, [defaultStore.theme])
+    
 
     
     /**========================

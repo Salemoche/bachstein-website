@@ -8,7 +8,7 @@ import { defaultStore } from '../state/store';
 import { useSnapshot } from 'valtio';
 
 // Components
-import LayoutComponent from '../components/layout/layout.component';
+import LayoutComponent from '../components/4_layout/layout.component';
 import { ContentStyles } from '../styles/global-components.styles';
 import HeaderComponent from '../components/3_elements/home/header/header.component';
 import IntroComponent from '../components/3_elements/home/intro/intro.component';
@@ -82,7 +82,7 @@ export default function Home({ translations, mainMenu, footerMenu, baseUrl, site
                     <IntroComponent image={introImage} title={introHeader} text={introText} />
                 </section>
                 <section>
-                    <CallToActionComponent image={ctaImage} title={ctaHeader} text={ctaText} buttonTest={ctaButtonText} />
+                    <CallToActionComponent image={ctaImage} title={ctaHeader} text={ctaText} buttonText={ctaButtonText} />
                 </section>
                 <section>
                     <ClientsComponent clients={clients} title={clientsTitle} />

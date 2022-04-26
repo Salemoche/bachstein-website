@@ -6,28 +6,39 @@ export const NavigationStyles = styled('div')`
 
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100vw;
+    right: 0;
     z-index: ${ props => props.theme.zIndices.navigation };
+    user-select: none;
 
     .bs-main-menu {
         display: flex;
-        justify-content: space-between;
-        width: ${ props => props.theme.contentWidthL }px;
-        max-width: 100vw;
-        margin: 0 auto;
-        padding: ${ props => props.theme.spaceM }px;
+        flex-direction: column;
+        margin: ${ props => props.theme.spaceM }px;
+        margin-top: 5rem;
     }
 
     .bs-menu-item {
         text-decoration: none;
+        margin-bottom: ${ props => props.theme.spaceXS }px;
+        padding: ${ props => props.theme.spaceXXS }px ${ props => props.theme.spaceS }px;
+        padding-bottom: ${ props => props.theme.spaceXS }px;
+        font-size: ${ props => props.theme.fontSizeL };
+        font-family: ${ props => props.theme.fontFamilySpecial };
+        text-align: right;
+        background: ${ props => props.theme.colors.gray[0] }dd;
+        border-radius: ${ props => props.theme.borderRadiusL };
+        
+        &:hover {
+            color: white;
+            background: ${ props => props.theme.colors.blue[1] };
+        }
 
         &.active {
             text-decoration: underline;
         }
     }
 
-    ${ ({ device, menuOpen }) => {
+    /* ${ ({ device, menuOpen }) => {
         if ( device.mode === 'tablet' || device.mode === 'mobile' ) {
             return css`
 
@@ -45,11 +56,18 @@ export const NavigationStyles = styled('div')`
                 }
             `
         }
-    }};
+    }}; */
     
 `
 
 export const MenuIconStyles = styled(IconStyles)`
+    display: inline-block;
+    transform: translateY(${ props => props.y }px);
+    margin-left: ${ props => props.theme.spaceS }px;
+    
+`
+
+export const HamburgerIconStyles = styled(IconStyles)`
     display: flex;
     position: absolute;
     right: ${ props => props.theme.spaceM }px;

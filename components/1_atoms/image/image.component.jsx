@@ -9,6 +9,8 @@ import { ImageStyles } from './image.styles';
 
 const ImageComponent = ({ image, handleClick = () => { console.log('clicked the image' )}, className = '' }) => {
             
+    if ( !image.mediaDetails ) return <></>
+
     const blurImage = image.mediaDetails.sizes.filter( size => size.name === 'blur')[0];
     const blurImageUrl = blurImage.sourceUrl
 
