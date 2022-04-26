@@ -7,13 +7,13 @@ import { defaultStore } from '../../../state/store';
 // Style
 import { ImageStyles } from './image.styles';
 
-const ImageComponent = ({ image, handleClick = () => { console.log('clicked the image' )} }) => {
+const ImageComponent = ({ image, handleClick = () => { console.log('clicked the image' )}, className = '' }) => {
             
     const blurImage = image.mediaDetails.sizes.filter( size => size.name === 'blur')[0];
     const blurImageUrl = blurImage.sourceUrl
 
     return (
-        <ImageStyles onClick={ handleClick } >
+        <ImageStyles className={`bs-image ${className}`} onClick={ handleClick } >
             <Image
                 src={image.mediaItemUrl}
                 width={image.mediaDetails.width}

@@ -20,6 +20,28 @@ export const SITE_QUERY = () => {
                 }
             }
         }
+        bsSiteSettings {
+            siteSettings {
+                cookieNotice
+                cookieDeny
+                cookieAccept
+                gabrielImage {
+                    altText
+                    mediaItemUrl
+                    srcSet
+                    mediaDetails {
+                        height
+                        width
+                        sizes {
+                            sourceUrl
+                            name
+                            height
+                            width
+                        }
+                    }
+                }
+            }
+        }
     }`
 }
 
@@ -104,7 +126,78 @@ export const PAGE_QUERY = () => {
                     }
                     introHeader
                     strapline
+                    contactFormTitle
+                    contactFormLead
                     clientsTitle
+                    clients {
+                        __typename
+                        ... on Kunde {
+                            title
+                            acfKunden {
+                                url
+                                logoLight {
+                                    altText
+                                    mediaItemUrl
+                                    srcSet
+                                    mediaDetails {
+                                        height
+                                        width
+                                        sizes {
+                                            sourceUrl
+                                            name
+                                            height
+                                            width
+                                        }
+                                    }
+                                }
+                                logoDark {
+                                    altText
+                                    mediaItemUrl
+                                    srcSet
+                                    mediaDetails {
+                                        height
+                                        width
+                                        sizes {
+                                            sourceUrl
+                                            name
+                                            height
+                                            width
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    projectsTitle
+                    projectsButton
+                    projects {
+                        __typename
+                        ... on Projekt {
+                        title
+                        acfProjekt {
+                            mainImage {
+                                altText
+                                mediaItemUrl
+                                srcSet
+                                mediaDetails {
+                                    height
+                                    width
+                                    sizes {
+                                        sourceUrl
+                                        name
+                                        height
+                                        width
+                                    }
+                                }
+                            }
+                            url
+                            meta {
+                                    title
+                                    text
+                                }
+                            }
+                        }
+                    }
                 }
                 seo {
                     canonical
@@ -170,8 +263,132 @@ export const PAGE_QUERY = () => {
                             attributesJSON
                         }
                     }
-                    home {
+                    home { 
+                        ctaButtonText
+                        ctaHeader
+                        ctaImage {
+                            altText
+                            mediaItemUrl
+                            srcSet
+                            mediaDetails {
+                                height
+                                width
+                                sizes {
+                                    sourceUrl
+                                    name
+                                    height
+                                    width
+                                }
+                            }
+                        }
+                        ctaText
+                        fieldGroupName
+                        headerImage {
+                            altText
+                            mediaItemUrl
+                            srcSet
+                            mediaDetails {
+                                height
+                                width
+                                sizes {
+                                    sourceUrl
+                                    name
+                                    height
+                                    width
+                                }
+                            }
+                        }
+                        introText
+                        introImage {
+                            altText
+                            mediaItemUrl
+                            srcSet
+                            mediaDetails {
+                                height
+                                width
+                                sizes {
+                                    sourceUrl
+                                    name
+                                    height
+                                    width
+                                }
+                            }
+                        }
+                        introHeader
                         strapline
+                        contactFormTitle
+                        contactFormLead
+                        clientsTitle
+                        clients {
+                            __typename
+                            ... on Kunde {
+                                title
+                                acfKunden {
+                                    url
+                                    logoLight {
+                                        altText
+                                        mediaItemUrl
+                                        srcSet
+                                        mediaDetails {
+                                            height
+                                            width
+                                            sizes {
+                                                sourceUrl
+                                                name
+                                                height
+                                                width
+                                            }
+                                        }
+                                    }
+                                    logoDark {
+                                        altText
+                                        mediaItemUrl
+                                        srcSet
+                                        mediaDetails {
+                                            height
+                                            width
+                                            sizes {
+                                                sourceUrl
+                                                name
+                                                height
+                                                width
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        projectsTitle
+                        projectsButton
+                        projects {
+                            __typename
+                            ... on Projekt {
+                            title
+                            acfProjekt {
+                                mainImage {
+                                    altText
+                                    mediaItemUrl
+                                    srcSet
+                                    mediaDetails {
+                                        height
+                                        width
+                                        sizes {
+                                            sourceUrl
+                                            name
+                                            height
+                                            width
+                                        }
+                                    }
+                                }
+                                url
+                                meta {
+                                    title
+                                    text
+                                    }
+                                }
+                                
+                            }
+                        }
                     }
                     seo {
                         canonical
@@ -211,6 +428,28 @@ export const PAGE_QUERY = () => {
                                     width
                                 }
                             }
+                        }
+                    }
+                }
+            }
+        }
+        bsSiteSettings {
+            siteSettings {
+                cookieNotice
+                cookieDeny
+                cookieAccept
+                gabrielImage {
+                    altText
+                    mediaItemUrl
+                    srcSet
+                    mediaDetails {
+                        height
+                        width
+                        sizes {
+                            sourceUrl
+                            name
+                            height
+                            width
                         }
                     }
                 }

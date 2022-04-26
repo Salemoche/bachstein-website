@@ -19,8 +19,8 @@ export const ContentStyles = styled('div')`
 export const GridStyles = styled('div')`
     display: grid;
     grid-template-rows: repeat(${ props => props.gridRows || 1}, 1fr );
-    grid-template-columns: repeat(${ props => props.gridColumns || 1}, 1fr);
-    grid-gap: ${ props => props.gridGap || 0}px; 
+    grid-template-columns: repeat(${ props => props.gridColumns || 12}, 1fr);
+    grid-gap: ${ props => props.gridGap || 16}px; 
 `
 
 export const BlockStyles = styled('div')`

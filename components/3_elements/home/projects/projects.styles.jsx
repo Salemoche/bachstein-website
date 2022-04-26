@@ -2,24 +2,21 @@ import styled from 'styled-components'
 import defaultTheme from '../../../../styles/theme'
 import { ContentStyles } from '../../../../styles/global-components.styles';
 
-export const ClientsStyles = styled(ContentStyles)`
+export const ProjectsStyles = styled(ContentStyles)`
 
-    .bs-clients__title {
+    .bs-projects__title {
         grid-column-start: 2;
         grid-column-end: 12;
         display: flex;
         flex-direction: column;
     }
 
-    .bs-clients__client {
-        grid-column: span 3;
+    .bs-projects__client {
+        grid-column: span 4;
         display: flex;
-        align-items: center;
-        padding: 0 ${ props => props.theme.spaceL }px;
-        
+        align-items: center;        
 
         .bs-image {
-            height: 30%;
             display: inline-grid;
         }
     }

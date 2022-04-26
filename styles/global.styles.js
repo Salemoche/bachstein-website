@@ -149,7 +149,11 @@ src: local(''),
     }
 
     a {
-        color: ${ props => props.theme.linkColor };
+        color: ${ props => props.theme.fontColor };
+        transition: ${ props => props.theme.transition[1] };
+        &:hover {
+            color: ${ props => props.theme.highlightColor };
+        }
     }
 
     ul {
@@ -180,6 +184,20 @@ src: local(''),
         border-radius: ${ props => props.theme.borderRadiusXS };
         padding: ${ props => props.theme.spaceS }px;
         text-decoration: none;
+    }
+    
+    input[type=text],
+    input[type=email],
+    textarea {
+        background: none;
+        outline: none;
+        color: ${ props => props.theme.fontColorInverted };
+        border: 1px solid ${ props => props.theme.fontColorInverted };
+        padding: ${ props => props.theme.spaceXS }px;
+
+        ::placeholder {
+            color: ${ props => props.theme.fontColorInverted };
+        }
     }
 
     ::selection {

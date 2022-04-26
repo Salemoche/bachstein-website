@@ -32,7 +32,7 @@ const defaultTheme = {
         navigation: 200,
         infoButton: 100,
     },
-    borderRadii: [ '2px', '4px', '8px', '16px', '50%' ],
+    borderRadii: [ '2px', '4px', '8px', '16px', '32px', '50%' ],
 }
 
 defaultTheme.spaceXXS = defaultTheme.space[1];
@@ -60,6 +60,8 @@ defaultTheme.borderRadiusXS = defaultTheme.borderRadii[0];
 defaultTheme.borderRadiusS = defaultTheme.borderRadii[1];
 defaultTheme.borderRadiusM = defaultTheme.borderRadii[2];
 defaultTheme.borderRadiusL = defaultTheme.borderRadii[3];
+defaultTheme.borderRadiusXL = defaultTheme.borderRadii[4];
+defaultTheme.borderRadius50 = defaultTheme.borderRadii[5];
 
 export const baseTheme = {
     ...defaultTheme,
@@ -77,6 +79,7 @@ export const invertedTheme = {
     fontColor: defaultTheme.colors.white[0],
     fontColorInverted: defaultTheme.colors.black[0],
     linkColor: defaultTheme.colors.blue[0],
+    highlightColor: defaultTheme.colors.blue[0],
     backgroundColor: defaultTheme.colors.black[0],
     backgroundColorInverted: defaultTheme.colors.white[0],
     selectionBackground: defaultTheme.colors.white[0],

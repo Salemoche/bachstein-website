@@ -14,15 +14,17 @@ import ImageComponent from '../../../1_atoms/image/image.component';
 
 const ClientsComponent = ({ title, clients }) => {
 
-    console.log(clients)
-
     return (
         <ClientsStyles className="bs-clients">
             <GridStyles gridColumns={12}>
-                <h2 class="bs-clients__title">{ sanitizeHtml(title) }</h2>
-                {/* { clients.map( (client, i) => {
-
-                })} */}
+                <h2 className="bs-clients__title">{ sanitizeHtml(title) }</h2>
+                { clients.map( (client, i) => {
+                    return (
+                        <a href={client.acfKunden.url} target="_blank" className="bs-clients__client" key={`project-${i}`}>
+                            <ImageComponent image={defaultStore.theme.negative ? client.acfKunden.logoLight :  client.acfKunden.logoDark }/>
+                        </a>
+                    )
+                })}
             </GridStyles>
         </ClientsStyles>
     )

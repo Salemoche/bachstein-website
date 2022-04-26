@@ -18,12 +18,15 @@ import ClientsComponent from '../components/3_elements/home/clients/clients.comp
 // Animation
 import { motion } from 'framer-motion';
 import { useTranslation } from '../utils/hooks';
+import ContactFormComponent from '../components/3_elements/contact-form/contact-form.component';
+import ProjectsComponent from '../components/3_elements/home/projects/projects.component';
 
-export default function Home({ translations, mainMenu, footerMenu, baseUrl, siteName }) {
+export default function Home({ translations, mainMenu, footerMenu, baseUrl, siteName, settings }) {
 
     const { deviceDetector } = useSnapshot( defaultStore );
     const content = useTranslation( translations );
     const { title } = content;
+    const { gabrielImage } = settings;
     const { 
         headerImage, 
         strapline,
@@ -36,8 +39,11 @@ export default function Home({ translations, mainMenu, footerMenu, baseUrl, site
         ctaButtonText,
         clientsTitle,
         clients,
+        projectsTitle,
+        projects,
+        contactFormTitle,
+        contactFormLead
     } = content.home;
-
 
     // Set site state
 
@@ -52,7 +58,6 @@ export default function Home({ translations, mainMenu, footerMenu, baseUrl, site
 
     useEffect(() => {
         console.log( defaultStore, deviceDetector );
-        // console.log( env )
     }, [ content ])
 
     return (
@@ -72,10 +77,24 @@ export default function Home({ translations, mainMenu, footerMenu, baseUrl, site
             >
                 <section>
                     <HeaderComponent strapline={strapline} image={headerImage}/>
+                </section>
+                <section>
                     <IntroComponent image={introImage} title={introHeader} text={introText} />
+                </section>
+                <section>
                     <CallToActionComponent image={ctaImage} title={ctaHeader} text={ctaText} buttonTest={ctaButtonText} />
+                </section>
+                <section>
                     <ClientsComponent clients={clients} title={clientsTitle} />
                 </section>
+                <section>
+                    <ProjectsComponent projects={projects} title={projectsTitle} />
+                </section>
+                {/* <section>
+                    <ContentStyles>
+                        <ContactFormComponent contactFormTitle={contactFormTitle} contactFormLead={contactFormLead} gabrielImage={ gabrielImage } />
+                    </ContentStyles>
+                </section> */}
             </LayoutComponent>
         </motion.div>
     )
@@ -96,6 +115,7 @@ export const getStaticProps = async() => {
     const menus = result.data.menus.nodes;
     const mainMenu = menus.filter( (menu) => (menu.slug === 'main-menu') );
     const footerMenu = menus.filter( (menu) => (menu.slug === 'footer-menu') );
+    const settings = result.data.bsSiteSettings?.siteSettings;
     const translations = {
         de: homePage[0]
     }
@@ -111,7 +131,8 @@ export const getStaticProps = async() => {
             mainMenu: mainMenu[0] || {},
             footerMenu: footerMenu[0] || {},
             baseUrl,
-            siteName
+            siteName,
+            settings
         }
     }
 }  
