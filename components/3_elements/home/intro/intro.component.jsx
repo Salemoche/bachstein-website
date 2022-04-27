@@ -19,15 +19,15 @@ import { motion, whileInView } from 'framer-motion';
 const IntroComponent = ({ image, title, text }) => {
 
     return (
-        <motion.div
-            initial={{ opacity: 0.2 }}
-            whileInView={{ opacity: 1 }}
-            transition={{
-                duration: 0.25,
-                delay: 0.5
-            }}
-            onViewportEnter={() => {console.log('enter')}}
-        >
+        // <motion.div
+        //     initial={{ opacity: 0.2 }}
+        //     whileInView={{ opacity: 1 }}
+        //     transition={{
+        //         duration: 0.25,
+        //         delay: 0.5
+        //     }}
+        //     onViewportEnter={() => {console.log('enter')}}
+        // >
             <IntroStyles className="bs-intro">
                 <GridStyles gridColumns={12}>
                     <div className="bs-intro__image">
@@ -39,7 +39,7 @@ const IntroComponent = ({ image, title, text }) => {
                     </div>
                 </GridStyles>
             </IntroStyles>
-        </motion.div>
+        // </motion.div>
     )
 }
 

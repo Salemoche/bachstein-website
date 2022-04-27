@@ -20,7 +20,6 @@ const ClientsComponent = ({ title, clients }) => {
             <GridStyles gridColumns={12}>
                 <h2 className="bs-clients__title">{ sanitizeHtml(title) }</h2>
                 { clients.map( (client, i) => {
-                    console.log(client)
                     return (
                         <a href={client.acfKunden.url} target="_blank" rel="noreferrer" className="bs-clients__client" key={`project-${i}`}>
                             <div className="bs-image">

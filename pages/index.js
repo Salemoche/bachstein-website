@@ -20,6 +20,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from '../utils/hooks';
 import ContactFormComponent from '../components/3_elements/contact-form/contact-form.component';
 import ProjectsComponent from '../components/3_elements/home/projects/projects.component';
+import TestComponent from '../components/3_elements/test/test.component';
 
 export default function Home({ translations, mainMenu, footerMenu, baseUrl, siteName, settings }) {
 
@@ -77,6 +78,9 @@ export default function Home({ translations, mainMenu, footerMenu, baseUrl, site
             >
                 <section>
                     <HeaderComponent strapline={strapline} image={headerImage}/>
+                </section>
+                <section>
+                    <TestComponent/>
                 </section>
                 <section>
                     <IntroComponent image={introImage} title={introHeader} text={introText} />
