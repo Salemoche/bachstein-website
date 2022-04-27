@@ -26,7 +26,7 @@ const TestComponent = () => {
                 While hover
             </motion.div>
             <motion.div
-                className='bs-test__element bs-test-hover'
+                className='bs-test__element bs-test-view'
                 initial={{ backgroundColor: '#CD67FB', opacity: 0.2 }}
                 whileInView={{ backgroundColor: '#67FB85', opacity: 1 }}
                 transition={{

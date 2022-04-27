@@ -9,11 +9,13 @@ export const IntroStyles = styled(ContentStyles)`
         grid-column-end: 11;
         display: flex;
         flex-direction: column;
+        transform: translateX(100);
     }
 
     .bs-intro__image {
         grid-column-start: 1;
         grid-column-end: 4;
+        transform: translateX(100);
     }
 
     @media screen and ( max-width: ${ props => props.theme.breakpointL }px) {

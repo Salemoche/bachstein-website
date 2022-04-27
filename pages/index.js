@@ -58,7 +58,7 @@ export default function Home({ translations, mainMenu, footerMenu, baseUrl, site
     }, [])
 
     useEffect(() => {
-        console.log( defaultStore, deviceDetector );
+        // console.log( defaultStore, deviceDetector );
     }, [ content ])
 
     return (
@@ -78,9 +78,6 @@ export default function Home({ translations, mainMenu, footerMenu, baseUrl, site
             >
                 <section>
                     <HeaderComponent strapline={strapline} image={headerImage}/>
-                </section>
-                <section>
-                    <TestComponent/>
                 </section>
                 <section>
                     <IntroComponent image={introImage} title={introHeader} text={introText} />

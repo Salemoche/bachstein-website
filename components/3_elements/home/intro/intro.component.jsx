@@ -14,32 +14,57 @@ import { GridStyles } from '../../../../styles/global-components.styles';
 import ImageComponent from '../../../1_atoms/image/image.component';
 
 // Animation
-import { motion, whileInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const IntroComponent = ({ image, title, text }) => {
 
+    const animIntro = {
+        show: {
+            opacity: 1,
+            transition: {
+                duration: 0.25,
+                delay: 0.5,
+            }
+        }
+    }
+
+    const animImage = {
+        show: {
+            x: 0,
+            transition: {
+                delay: 0.5
+            }
+        }
+    }
+
+    const animText = {
+        show: {
+            x: 0,
+            transition: {
+                delay: 1.9
+            }
+        }
+    }
+
     return (
-        // <motion.div
-        //     initial={{ opacity: 0.2 }}
-        //     whileInView={{ opacity: 1 }}
-        //     transition={{
-        //         duration: 0.25,
-        //         delay: 0.5
-        //     }}
-        //     onViewportEnter={() => {console.log('enter')}}
-        // >
-            <IntroStyles className="bs-intro">
+        <IntroStyles className="bs-intro">
+            <motion.div
+                variants={ animIntro }
+                whileInView="show"
+                // whileHover="show"
+                onViewportEnter={() => {console.log('enter')}}
+            >
                 <GridStyles gridColumns={12}>
-                    <div className="bs-intro__image">
+                    <div className="bs-intro__image" variants={ animImage }>
                         { image && <ImageComponent image={ image } /> }
                     </div>
-                    <div className="bs-intro__text">
+                    <div className="bs-intro__text" variants={ animText }>
                         <h2>{ title }</h2>
                         <div dangerouslySetInnerHTML={{ __html: sanitizeHtml( text ) }}></div>
                     </div>
                 </GridStyles>
-            </IntroStyles>
-        // </motion.div>
+            </motion.div>
+        </IntroStyles>
     )
 }
 

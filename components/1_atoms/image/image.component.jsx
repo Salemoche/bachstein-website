@@ -16,7 +16,7 @@ const ImageComponent = ({ image, handleClick = () => { console.log('clicked the 
 
     return (
         <ImageStyles className={`bs-image ${className}`} onClick={ handleClick } >
-            {/* <Image
+            <Image
                 src={image.mediaItemUrl}
                 width={image.mediaDetails.width}
                 height={image.mediaDetails.height} 
@@ -25,7 +25,7 @@ const ImageComponent = ({ image, handleClick = () => { console.log('clicked the 
                 quality={75}
                 placeholder={'blur'}
                 blurDataURL={blurImageUrl}
-            /> */}
+            />
         </ImageStyles>
     )
 }
