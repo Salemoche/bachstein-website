@@ -82,6 +82,7 @@ src: local(''),
 
     main {
         width: 100%;
+        margin-bottom: ${ props => props.theme.spaceL }px;
     }
 
     html {
@@ -217,12 +218,13 @@ src: local(''),
         cursor: pointer;
         background: black;
         color: white;
-        border-radius: ${ props => props.theme.borderRadiusXS };
+        border-radius: ${ props => props.theme.borderRadiusM };
         padding: ${ props => props.theme.spaceXS }px ${ props => props.theme.spaceS }px;
         text-decoration: none;
         transition: background ${ props => props.theme.transition[2] };
         display: inline-block;
         background: ${ props => props.theme.colors.blue[1] };
+        border: none;
 
         &:hover {
             background: ${ props => props.theme.colors.blue[2] };

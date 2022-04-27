@@ -7,7 +7,7 @@ import { POSTS_QUERY, POST_QUERY } from '../../../utils/queries';
 import { defaultStore } from '../../../state/store';
 
 // Components
-import LayoutComponent from '../../../components/layout/layout.component';
+import LayoutComponent from '../../../components/4_layout/layout.component';
 import { ContentStyles } from '../../../styles/global-components.styles';
 
 // Animation

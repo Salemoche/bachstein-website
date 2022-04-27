@@ -14,7 +14,7 @@ export const CallToActionStyles = styled(ContentStyles)`
             margin-bottom: ${ props => props.theme.spaceM }px;
         }
 
-        .sm-button {
+        .bs-button {
             margin-right: auto;
         }
     }

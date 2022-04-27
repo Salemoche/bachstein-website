@@ -32,7 +32,7 @@ const ContactFormComponent = ({ contactFormTitle, contactFormLead, gabrielImage 
             <form ref={form} onSubmit={sendEmail}>
                 <GridStyles>
                     <div className="bs-form-column column-1">
-                        <label class="bs-main-label">Deine Angaben</label>
+                        <label className="bs-main-label">Deine Angaben</label>
                         { defaultStore.theme.accessible && <label htmlFor='user_name'>Name</label> }
                         <input type="text" id="user_name" name="user_name" placeholder="Dein Name" required />
                         { defaultStore.theme.accessible && <label htmlFor='user_email'>Email</label> }
@@ -44,7 +44,7 @@ const ContactFormComponent = ({ contactFormTitle, contactFormLead, gabrielImage 
                     </div>
                     <div className="bs-form-column column-2">
                         <div className="bs-form-budget">
-                            <label class="bs-main-label" htmlFor="website_budget">Dein Budget in CHF</label>
+                            <label className="bs-main-label" htmlFor="website_budget">Dein Budget in CHF</label>
                             <input type="radio" id="3000" name="website_budget" value="3000" />
                             <label htmlFor='3000'>&lt; 3000</label>
                             <input type="radio" id="10000" name="website_budget" value="10000" />
@@ -55,7 +55,7 @@ const ContactFormComponent = ({ contactFormTitle, contactFormLead, gabrielImage 
                             <label htmlFor='99999'>&gt; 20000</label>
                         </div>
                         <div className="bs-form-type">
-                            <label class="bs-main-label">Die Art von Webseite</label>
+                            <label className="bs-main-label">Die Art von Webseite</label>
                             <select name="website_type" id="website_type">
                                 <option value="business">Geschäftsseite</option>
                                 <option value="portfolio">Portfolio Seite</option>
@@ -63,7 +63,7 @@ const ContactFormComponent = ({ contactFormTitle, contactFormLead, gabrielImage 
                             </select>
                         </div>
                         <div className="bs-form-message">
-                            <label class="bs-main-label" htmlFor='user_message'>Deine Nachricht</label>
+                            <label className="bs-main-label" htmlFor='user_message'>Deine Nachricht</label>
                             <textarea id="user_message" name="user_message" placeholder="Fragen, Wünsche, Inspirationen" />
                         </div>
                     </div>

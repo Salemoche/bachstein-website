@@ -20,7 +20,14 @@ export const ClientsStyles = styled(ContentStyles)`
 
         .bs-image {
             height: 30%;
+            width: 100%;
             display: inline-grid;
+
+            img {
+                height: 100%;
+                width: 100%;
+                margin: 0 auto;
+            }
         }
 
         &:hover {
