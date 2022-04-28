@@ -19,18 +19,23 @@ import { motion } from 'framer-motion';
 const IntroComponent = ({ image, title, text }) => {
 
     const animIntro = {
+        hidden: {
+            opacity: 0
+        },
         show: {
             opacity: 1,
             transition: {
                 duration: 0.25,
                 delay: 0.5,
+                delayChildren: 1.5
             }
         }
     }
 
     const animImage = {
         show: {
-            x: 0,
+            transform: 'translateX(-200px)',
+            opacity: 1,
             transition: {
                 delay: 0.5
             }
@@ -39,7 +44,8 @@ const IntroComponent = ({ image, title, text }) => {
 
     const animText = {
         show: {
-            x: 0,
+            transform: 'translateX(-200px)',
+            opacity: 1,
             transition: {
                 delay: 1.9
             }
@@ -50,15 +56,30 @@ const IntroComponent = ({ image, title, text }) => {
         <IntroStyles className="bs-intro">
             <motion.div
                 variants={ animIntro }
+                style={{opacity: 0.2}}
                 whileInView="show"
                 // whileHover="show"
                 onViewportEnter={() => {console.log('enter')}}
             >
                 <GridStyles gridColumns={12}>
-                    <div className="bs-intro__image" variants={ animImage }>
+                    <div 
+                        className="bs-intro__image" 
+                        style={{ 
+                            transform: 'translateX(0px)',
+                            opacity: 1
+                        }}
+                        variants={ animImage }
+                    >
                         { image && <ImageComponent image={ image } /> }
                     </div>
-                    <div className="bs-intro__text" variants={ animText }>
+                    <div 
+                        className="bs-intro__text" 
+                        style={{ 
+                            transform: 'translateX(0px)',
+                            opacity: 1
+                        }}
+                        variants={ animText }
+                    >
                         <h2>{ title }</h2>
                         <div dangerouslySetInnerHTML={{ __html: sanitizeHtml( text ) }}></div>
                     </div>

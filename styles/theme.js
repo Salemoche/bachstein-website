@@ -33,6 +33,7 @@ const defaultTheme = {
     zIndices: {
         debugControls: 400,
         loading: 300,
+        cookieNotice: 275,
         modal: 250, 
         navigation: 200,
         infoButton: 100,

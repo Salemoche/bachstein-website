@@ -85,14 +85,14 @@ const NavigationComponent = ({ mainMenu }) => {
                 transition={{ duration: .1 }}
             >
                 {/* { menuItems.map( menuItem => <Link key={ menuItem.path || '/' } href={ menuItem.path || '/' }><a className={`bs-menu-item${menuItem.path === defaultStore?.router?.pathName ? ' active' : ''}`}>{ menuItem.label }</a></Link>) } */}
-                <Link href="/">
-                    <a className={`bs-menu-item${'/' === defaultStore?.router?.pathName ? ' active' : ''}`}>
+                <Link href="/" scroll={true}>
+                    <a className={`bs-menu-item${'/' === defaultStore?.router?.pathName ? ' active' : ''}`} >
                         Home
                         <MenuIconStyles y="7" dangerouslySetInnerHTML={{ __html: HomeIcon }}/>
                     </a>
                 </Link>
-                <Link href="/agb">
-                    <a className={`bs-menu-item${'/agb' === defaultStore?.router?.pathName ? ' active' : ''}`}>
+                <Link href="/agb" scroll={true}>
+                    <a className={`bs-menu-item${'/agb' === defaultStore?.router?.pathName ? ' active' : ''}`} >
                         AGB
                         <MenuIconStyles y="7" dangerouslySetInnerHTML={{ __html: AboutIcon }}/>
                     </a>

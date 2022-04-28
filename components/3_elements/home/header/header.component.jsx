@@ -24,7 +24,7 @@ const HeaderComponent = ({ strapline, image }) => {
         <HeaderStyles className="bs-header">
             {/* <div className="bs-home-header__background" dangerouslySetInnerHTML={{ __html: parsedImage.imageElement } }></div> */}
             <div className="bs-home-header__background">
-                { image && <ImageComponent image={ image } /> }
+                { image && <ImageComponent image={ image } size="1536x1536" /> }
             </div>
             <HeaderStyles className="bs-home-header__content">
                 <h1 className="bs-home-header__wordmark">bachstein</h1>

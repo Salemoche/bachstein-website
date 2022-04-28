@@ -13,9 +13,9 @@ import ButtonComponent from '../../1_atoms/button/button.component';
 const CookieNotice = ({ handleClick }) => {
     return (
         <CookieNoticeStyles>
-            <div className="cookie-notice__message">We use cookies to optimize your User experience.</div>
-            <ButtonComponent className="cookie-notice__button" label='accept cookies' handleClick={ () => handleClick(true) } />
-            <ButtonComponent className="cookie-notice__button" label='deny cookies' handleClick={ () => handleClick(false) } />
+            <div className="cookie-notice__message">Wir nutzen Cookies um deine Nutzererfahrung zu verbessern.</div>
+            <ButtonComponent className="cookie-notice__button" label='ablehnen' handleClick={ () => handleClick(false) } />
+            <ButtonComponent className="cookie-notice__button" label='akzeptieren' handleClick={ () => handleClick(true) } />
         </CookieNoticeStyles>
     )
 }

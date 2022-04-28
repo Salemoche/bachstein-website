@@ -9,6 +9,7 @@ export const ClientsStyles = styled(ContentStyles)`
         grid-column-end: 12;
         display: flex;
         flex-direction: column;
+        margin-bottom: ${ props => props.theme.spaceL }px;
     }
 
     .bs-clients__client {
@@ -17,6 +18,11 @@ export const ClientsStyles = styled(ContentStyles)`
         align-items: center;
         padding: 0 ${ props => props.theme.spaceL }px;
         transition: transform ${ props => props.theme.transition[1] };
+
+
+        &:last-of-type {
+            display: none;
+        }
 
         .bs-image {
             height: 30%;
@@ -54,6 +60,10 @@ export const ClientsStyles = styled(ContentStyles)`
 
         .bs-clients__client {
             grid-column: span 4;
+
+            &:last-of-type {
+                display: inherit;
+            }
         }
     }
 
@@ -61,6 +71,12 @@ export const ClientsStyles = styled(ContentStyles)`
 
         .bs-clients__client {
             grid-column: span 6;
+
+            .bs-image {
+                height: 70%;
+                width: 100%;
+                margin: 0 auto;
+            }
         }
     }
 

@@ -10,7 +10,7 @@ const GlobalStyles = createGlobalStyle`
 font-family: 'Pangram';
 font-style: normal;
 font-weight: 400;
-${'' /* src: url('/fonts/lato-v20-latin/lato-v20-latin-regular.eot');  */}
+src: url('/fonts/pangram/Pangram-Regular.otf') format('opentype');
 src: local(''),
     url('/fonts/pangram/Pangram-Regular.otf') format('opentype'),
     font-display: swap;
@@ -20,7 +20,7 @@ src: local(''),
 font-family: 'Millik';
 font-style: normal;
 font-weight: 400;
-${'' /* src: url('/fonts/lato-v20-latin/lato-v20-latin-regular.eot');  */}
+src: url('/fonts/millik/Millik.otf') format('opentype');
 src: local(''),
     url('/fonts/millik/Millik.otf') format('opentype'),
     url('/fonts/millik/Millik.ttf') format('truetype'),

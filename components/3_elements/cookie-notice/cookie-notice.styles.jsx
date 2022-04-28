@@ -18,4 +18,21 @@ export const CookieNoticeStyles = styled('div')`
     .cookie-notice__button {
         margin-left: ${ props => props.theme.spaceS }px;
     }
+
+    @media screen and (max-width: ${ props => props.theme.breakpointM - 1 }px) {
+
+        flex-wrap: wrap;
+        padding: ${ props => props.theme.spaceS }px;
+        gap: ${ props => props.theme.spaceS }px;
+
+        .cookie-notice__message {
+            flex-basis: 100%;
+        }
+
+        .cookie-notice__button {
+            flex: 1;
+            margin: 0;
+            
+        }
+    }
 `

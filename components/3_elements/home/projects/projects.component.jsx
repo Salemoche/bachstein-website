@@ -22,7 +22,7 @@ const ProjectsComponent = ({ title, projects }) => {
                     return (
                         project?.acfProjekt?.mainImage && 
                         <a href={project.acfProjekt.url} target="_blank" rel="noreferrer" className="bs-projects__project" key={`project-${i}`}>
-                            <ImageComponent image={ project.acfProjekt.mainImage }/>
+                            <ImageComponent image={ project.acfProjekt.mainImage } size="large"/>
                             <h4 className="bs-projects__info">{ project.title }</h4>
                         </a> 
                     )

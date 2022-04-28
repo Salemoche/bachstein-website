@@ -7,19 +7,23 @@ import { defaultStore } from '../../../state/store';
 // Style
 import { ImageStyles } from './image.styles';
 
-const ImageComponent = ({ image, handleClick = () => { console.log('clicked the image' )}, className = '' }) => {
+const ImageComponent = ({ image, size:sizeName = 'large', handleClick = () => { console.log('clicked the image' )}, className = '' }) => {
             
     if ( !image.mediaDetails ) return <></>
 
     const blurImage = image.mediaDetails.sizes.filter( size => size.name === 'blur')[0];
     const blurImageUrl = blurImage.sourceUrl
 
+    const imageUrl = image.mediaDetails.sizes.filter( size => size.name == sizeName)[0]?.sourceUrl || image.mediaItemUrl;
+    const imagewidth = image.mediaDetails.sizes.filter( size => size.name == sizeName)[0]?.width || image.mediaDetails.width;
+    const imageHeight = image.mediaDetails.sizes.filter( size => size.name == sizeName)[0]?.height || image.mediaDetails.height;
+
     return (
         <ImageStyles className={`bs-image ${className}`} onClick={ handleClick } >
             <Image
-                src={image.mediaItemUrl}
-                width={image.mediaDetails.width}
-                height={image.mediaDetails.height} 
+                src={imageUrl}
+                width={imagewidth}
+                height={imageHeight} 
                 loading={'lazy'}
                 layout={'responsive'} 
                 quality={75}

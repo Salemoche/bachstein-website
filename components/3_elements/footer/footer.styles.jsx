@@ -54,4 +54,9 @@ export const FooterStyles = styled('div')`
             margin-left: 5px;
         }
     }
+
+    @media screen and (max-width: ${ props => props.theme.breakpointM - 1 }px) {
+        padding: ${ props => props.theme.spaceS }px;
+        padding-bottom: ${ props => props.theme.spaceXS }px; 
+    }
 `
