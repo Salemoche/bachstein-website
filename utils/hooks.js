@@ -267,9 +267,9 @@ export const useAppearAnimation = ( content ) => {
         <motion.div
         variants={ animAppearParent() }
         initial='hidden'
-        animate={ mode == 'mobile' && 'show'}
+        // animate={ mode == 'mobile' && 'show'}
         whileInView='show'
-        viewport={ viewport }
+        viewport={ viewport() }
         onViewportEnter={() => {console.log('enter')}}
     >
         { content }

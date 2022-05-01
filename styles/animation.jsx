@@ -1,6 +1,13 @@
-export const viewport = { 
-    once: true,
-    margin: '-200px'
+export const viewport = ( options ) => {
+    options = {
+        once: true,
+        ...options
+    }
+    
+    return { 
+        once: options.once,
+        margin: '-200px'
+    }
 }
 
 export const animAppearParent = ( options ) => {

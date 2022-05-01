@@ -46,7 +46,7 @@ const ProjectComponent = ({ project, index }) => {
                     initial='hidden'
                     whileInView={ defaultStore.deviceDetector.mode == 'mobile' ? 'show' : 'hidden' }
                     whileHover={ defaultStore.deviceDetector.mode == 'mobile' ? 'hidden' : 'show' }
-                    viewport={{ margin: '-200px' }}
+                    viewport={{ margin: '-200px', once: false }}
                 >
                     { project.title }
                 </motion.h4>
