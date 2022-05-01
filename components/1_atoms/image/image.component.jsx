@@ -1,9 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
 
-// Data
-import { defaultStore } from '../../../state/store';
-
 // Style
 import { ImageStyles } from './image.styles';
 
@@ -15,14 +12,14 @@ const ImageComponent = ({ image, size:sizeName = 'large', handleClick = () => { 
     const blurImageUrl = blurImage.sourceUrl
 
     const imageUrl = image.mediaDetails.sizes.filter( size => size.name == sizeName)[0]?.sourceUrl || image.mediaItemUrl;
-    const imagewidth = image.mediaDetails.sizes.filter( size => size.name == sizeName)[0]?.width || image.mediaDetails.width;
+    const imageWidth = image.mediaDetails.sizes.filter( size => size.name == sizeName)[0]?.width || image.mediaDetails.width;
     const imageHeight = image.mediaDetails.sizes.filter( size => size.name == sizeName)[0]?.height || image.mediaDetails.height;
 
     return (
         <ImageStyles className={`bs-image ${className}`} onClick={ handleClick } >
             <Image
                 src={imageUrl}
-                width={imagewidth}
+                width={imageWidth}
                 height={imageHeight} 
                 loading={'lazy'}
                 layout={'responsive'} 

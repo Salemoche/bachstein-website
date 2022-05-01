@@ -56,10 +56,8 @@ const IntroComponent = ({ image, title, text }) => {
         <IntroStyles className="bs-intro">
             <motion.div
                 variants={ animIntro }
-                style={{opacity: 0.2}}
+                initial="hidden"
                 whileInView="show"
-                // whileHover="show"
-                onViewportEnter={() => {console.log('enter')}}
             >
                 <GridStyles gridColumns={12}>
                     <div 

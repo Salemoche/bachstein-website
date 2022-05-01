@@ -28,6 +28,8 @@ export const ClientsStyles = styled(ContentStyles)`
             height: 30%;
             width: 100%;
             display: inline-grid;
+            display: flex;
+            align-items: center;
 
             img {
                 height: 100%;
@@ -71,11 +73,18 @@ export const ClientsStyles = styled(ContentStyles)`
 
         .bs-clients__client {
             grid-column: span 6;
+            
+            &:last-of-type {
+                display: none;
+            }
 
             .bs-image {
-                height: 70%;
-                width: 100%;
+                height: 100%;
                 margin: 0 auto;
+                
+                img {
+                    height: 50%;
+                }
             }
         }
     }
