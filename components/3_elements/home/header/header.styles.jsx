@@ -44,8 +44,11 @@ export const HeaderStyles = styled('div')`
         }
     }
 
-    @media screen and ( max-width: ${ props => props.theme.breakpointL }px) {
+    @media screen and ( max-width: ${ props => props.theme.breakpointXL }px) {
         height: 70vw;
+    }
+
+    @media screen and ( max-width: ${ props => props.theme.breakpointL }px) {
 
         .bs-home-header__content {
 

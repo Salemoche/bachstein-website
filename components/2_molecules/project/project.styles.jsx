@@ -32,21 +32,21 @@ export const ProjectStyles = styled('a')`
         transition: opacity ${ props => props.theme.transition[2] };
         opacity: 0;
 
-        ${ props => {
+        /* ${ props => {
             if ( props.mode === 'mobile' ) {
                 return css`
                 opacity: ${ props.isInView ? 0.9 : 0 }
             `
             }
-        }};
+        }}; */
     }
 
-    &:hover {
+    /* &:hover {
         .bs-projects__info {
             opacity: 0.9;
             margin-bottom: 0;
         }
-    }
+    } */
 
 
     @media screen and ( max-width: ${ props => props.theme.breakpointL }px) {

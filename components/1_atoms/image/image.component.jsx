@@ -4,7 +4,7 @@ import Image from 'next/image';
 // Style
 import { ImageStyles } from './image.styles';
 
-const ImageComponent = ({ image, size:sizeName = 'large', handleClick = () => { console.log('clicked the image' )}, className = '' }) => {
+const ImageComponent = ({ image, size:sizeName = 'large', handleClick = () => { console.log('clicked the image' )}, className = '', prioritize = 'false' }) => {
             
     if ( !image.mediaDetails ) return <></>
 
@@ -21,11 +21,12 @@ const ImageComponent = ({ image, size:sizeName = 'large', handleClick = () => { 
                 src={imageUrl}
                 width={imageWidth}
                 height={imageHeight} 
-                loading={'lazy'}
+                loading={prioritize ? 'eager' : 'lazy'}
                 layout={'responsive'} 
                 quality={75}
                 placeholder={'blur'}
                 blurDataURL={blurImageUrl}
+                priority={prioritize}
             />
         </ImageStyles>
     )

@@ -7,6 +7,10 @@ import { defaultStore } from '../state/store';
 // Components
 import LightboxComponent from '../components/3_elements/lightbox/lightbox.component';
 
+// Animation
+import { motion } from 'framer-motion';
+import { animAppearChild, animAppearParent, viewport } from '../styles/animation';
+
 export const useDeviceDetector = () => {
 
     const [returnDevice, setReturnDevice] = useState({})
@@ -252,4 +256,23 @@ export const useTranslation = ( translations ) => {
     
 
     return translated;
+}
+
+export const useAppearAnimation = ( content ) => {
+
+    const { mode } = defaultStore.deviceDetector;
+
+    return (
+
+        <motion.div
+        variants={ animAppearParent() }
+        initial='hidden'
+        animate={ mode == 'mobile' && 'show'}
+        whileInView='show'
+        viewport={ viewport }
+        onViewportEnter={() => {console.log('enter')}}
+    >
+        { content }
+    </motion.div>
+    )
 }

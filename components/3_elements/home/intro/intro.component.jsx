@@ -15,74 +15,34 @@ import ImageComponent from '../../../1_atoms/image/image.component';
 
 // Animation
 import { motion } from 'framer-motion';
+import { animAppearChild, animAppearParent, viewport } from '../../../../styles/animation';
+import { useAppearAnimation } from '../../../../utils/hooks';
 
 const IntroComponent = ({ image, title, text }) => {
 
-    const animIntro = {
-        hidden: {
-            opacity: 0
-        },
-        show: {
-            opacity: 1,
-            transition: {
-                duration: 0.25,
-                delay: 0.5,
-                delayChildren: 1.5
-            }
-        }
-    }
-
-    const animImage = {
-        show: {
-            transform: 'translateX(-200px)',
-            opacity: 1,
-            transition: {
-                delay: 0.5
-            }
-        }
-    }
-
-    const animText = {
-        show: {
-            transform: 'translateX(-200px)',
-            opacity: 1,
-            transition: {
-                delay: 1.9
-            }
-        }
-    }
-
     return (
         <IntroStyles className="bs-intro">
-            <motion.div
-                variants={ animIntro }
-                initial="hidden"
-                whileInView="show"
-            >
+            { useAppearAnimation(
                 <GridStyles gridColumns={12}>
-                    <div 
+                    <motion.div 
                         className="bs-intro__image" 
                         style={{ 
                             transform: 'translateX(0px)',
                             opacity: 1
                         }}
-                        variants={ animImage }
+                        variants={ animAppearChild() }
                     >
                         { image && <ImageComponent image={ image } /> }
-                    </div>
-                    <div 
+                    </motion.div>
+                    <motion.div 
                         className="bs-intro__text" 
-                        style={{ 
-                            transform: 'translateX(0px)',
-                            opacity: 1
-                        }}
-                        variants={ animText }
+                        variants={ animAppearChild() }
                     >
                         <h2>{ title }</h2>
                         <div dangerouslySetInnerHTML={{ __html: sanitizeHtml( text ) }}></div>
-                    </div>
+                    </motion.div>
                 </GridStyles>
-            </motion.div>
+            )}
         </IntroStyles>
     )
 }

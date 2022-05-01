@@ -18,6 +18,7 @@ export const NavigationStyles = styled('div')`
     }
 
     .bs-menu-item {
+        position: relative;
         text-decoration: none;
         margin-bottom: ${ props => props.theme.spaceXS }px;
         padding: ${ props => props.theme.spaceXXS }px ${ props => props.theme.spaceS }px;
@@ -27,6 +28,19 @@ export const NavigationStyles = styled('div')`
         text-align: right;
         background: ${ props => props.theme.colors.gray[0] }dd;
         border-radius: ${ props => props.theme.borderRadiusL };
+
+        a {
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            padding-right: 42px;
+            margin-top: 8px;
+
+            &:hover {
+                color: white;
+                background: ${ props => props.theme.colors.blue[1] };
+            }
+        }
         
         &:hover {
             color: white;
@@ -34,7 +48,8 @@ export const NavigationStyles = styled('div')`
         }
 
         &.active {
-            text-decoration: underline;
+            color: white;
+            background: ${ props => props.theme.colors.blue[1] };
         }
     }
 
@@ -62,6 +77,9 @@ export const NavigationStyles = styled('div')`
 
 export const MenuIconStyles = styled(IconStyles)`
     display: inline-block;
+    position: absolute;
+    right: ${ props => props.theme.spaceS }px;
+    top: 0;
     transform: translateY(${ props => props.y }px);
     margin-left: ${ props => props.theme.spaceS }px;
     

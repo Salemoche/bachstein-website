@@ -1,5 +1,5 @@
 const defaultTheme = {
-    breakpoints: [ 320, 414, 768, 1024, 1440, 1800 ],
+    breakpoints: [ 320, 414, 960, 768, 1024, 1440, 1800 ],
     space: [ 0, 4, 8, 16, 32, 64, 128, 256, 512 ],
     fontSizes: [
         '0.875rem', //14px / XS
@@ -56,9 +56,10 @@ defaultTheme.fontSizeXXL = defaultTheme.fontSizes[5];
 defaultTheme.fontSizeWordmark = defaultTheme.fontSizes[6];
 defaultTheme.fontFamilyDefault = defaultTheme.fontFamilies[0];
 defaultTheme.fontFamilySpecial = defaultTheme.fontFamilies[1];
-defaultTheme.breakpointXXL = defaultTheme.breakpoints[5]
-defaultTheme.breakpointXL = defaultTheme.breakpoints[4]
-defaultTheme.breakpointL = defaultTheme.breakpoints[3]
+defaultTheme.breakpointXXL = defaultTheme.breakpoints[6]
+defaultTheme.breakpointXL = defaultTheme.breakpoints[5]
+defaultTheme.breakpointL = defaultTheme.breakpoints[4]
+defaultTheme.breakpointML = defaultTheme.breakpoints[3]
 defaultTheme.breakpointM = defaultTheme.breakpoints[2]
 defaultTheme.breakpointS = defaultTheme.breakpoints[1]
 defaultTheme.breakpointXS = defaultTheme.breakpoints[0]

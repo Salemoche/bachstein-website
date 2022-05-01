@@ -21,6 +21,7 @@ import ColorIcon from '../../../public/img/icons/color.svg';
 // Animation
 import { motion } from 'framer-motion';
 import router from 'next/router';
+import { useRouter } from 'next/router';
 
 const NavigationComponent = ({ mainMenu }) => {
 
@@ -30,6 +31,7 @@ const NavigationComponent = ({ mainMenu }) => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [showMenu, setShowMenu] = useState(true);
     const pScrollY = useRef(null);
+    const router = useRouter()
 
     useEffect(() => {
         defaultStore.headerHeight = ref.current.offsetHeight || 0;
@@ -72,7 +74,6 @@ const NavigationComponent = ({ mainMenu }) => {
         console.log(defaultStore.theme)
     }
 
-
     return (
         <NavigationStyles ref={ ref } className="bs-navigation" device={ deviceDetector } menuOpen={ menuOpen }>
             <motion.nav
@@ -84,19 +85,19 @@ const NavigationComponent = ({ mainMenu }) => {
                 }}
                 transition={{ duration: .1 }}
             >
-                {/* { menuItems.map( menuItem => <Link key={ menuItem.path || '/' } href={ menuItem.path || '/' }><a className={`bs-menu-item${menuItem.path === defaultStore?.router?.pathName ? ' active' : ''}`}>{ menuItem.label }</a></Link>) } */}
-                <Link href="/" scroll={true}>
-                    <a className={`bs-menu-item${'/' === defaultStore?.router?.pathName ? ' active' : ''}`} >
+                {/* { menuItems.map( menuItem => <Link key={ menuItem.path || '/' } href={ menuItem.path || '/' }><a className={`bs-menu-item${menuItem.path === defaultStore?.router?.pathname ? ' active' : ''}`}>{ menuItem.label }</a></Link>) } */}
+                <div className={`bs-menu-item${'/' == router.pathname ? ' active' : ''}`}>
+                    <Link href="/" scroll={false}>
                         Home
-                        <MenuIconStyles y="7" dangerouslySetInnerHTML={{ __html: HomeIcon }}/>
-                    </a>
-                </Link>
-                <Link href="/agb" scroll={true}>
-                    <a className={`bs-menu-item${'/agb' === defaultStore?.router?.pathName ? ' active' : ''}`} >
+                    </Link>
+                    <MenuIconStyles y="7" dangerouslySetInnerHTML={{ __html: HomeIcon }}/>
+                </div> 
+                <div className={`bs-menu-item${'/agb' == router.pathname ? ' active' : ''}`}>
+                    <Link href="/agb" scroll={false}>
                         AGB
-                        <MenuIconStyles y="7" dangerouslySetInnerHTML={{ __html: AboutIcon }}/>
-                    </a>
-                </Link>
+                    </Link>
+                    <MenuIconStyles y="7" dangerouslySetInnerHTML={{ __html: AboutIcon }}/>
+                </div> 
                 {/* <a className="bs-menu-item" onClick={changeColorMode}>
                     { defaultStore.theme.negative ? 'light mode' : 'dark mode' }
                     <MenuIconStyles y="7" dangerouslySetInnerHTML={{ __html: ColorIcon }}/>
