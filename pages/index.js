@@ -74,6 +74,7 @@ export default function Home({ translations, mainMenu, footerMenu, baseUrl, site
                 baseUrl={ baseUrl }
                 siteName={ siteName }
                 content={ content }
+                settings={ settings }
                 // fullHead={ fullHead } // SM-TODO: SEO
             >
                 <section>

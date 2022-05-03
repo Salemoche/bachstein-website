@@ -195,6 +195,8 @@ export const IconStyles = styled('div')`
     svg {
         width: 100%;
         height: 100%;
+        transition: ${ props => props.theme.transition[1] };
+        
     }
 `
 

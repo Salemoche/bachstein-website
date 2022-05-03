@@ -2,6 +2,9 @@
 
 import Image from 'next/image'
 
+// State
+import { defaultStore } from '../state/store';
+
 // Components
 import TestBlockComponent from '../components/wp-blocks/test-block/test-block.component';
 import { WPBlockStyles, WPColumnsStyles, WPColumnStyles } from "../styles/global-components.styles";
@@ -15,6 +18,7 @@ import sanitizeHtml from 'sanitize-html';
 
 // Animation
 import { motion } from 'framer-motion';
+import { animAppearChild } from '../styles/animation';
 
 export const getWordpressImage = ( imageNode, size ) => {
     
@@ -142,4 +146,24 @@ export const getImageSizeFromWPUrl = ( link ) => {
         width,
         height
     }
+}
+
+/**
+*========================================
+*	
+*	Animation
+*	
+*========================================
+*/
+
+export const appearChild = ( options ) => {
+
+    const { mode } = defaultStore.deviceDetector;
+
+    options = {
+        mobile: mode == 'mobile',
+        ...options
+    }
+
+    return animAppearChild( options )
 }

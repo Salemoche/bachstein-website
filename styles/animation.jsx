@@ -3,17 +3,19 @@ export const viewport = ( options ) => {
         once: true,
         ...options
     }
-    
+
     return { 
         once: options.once,
-        margin: '-200px'
+        margin: '-200px 0px -200px 0px'
     }
 }
 
 export const animAppearParent = ( options ) => {
 
     options = {
+        mobile: false,
         direction: 'fromRight',
+        stagger: 0.3,
         ...options
     }
     
@@ -24,10 +26,11 @@ export const animAppearParent = ( options ) => {
         show: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1,
+                staggerChildren: options.mobile ? false : options.stagger,
                 delayChildren: 0,
                 delay: .3,
-                duration: .6
+                duration: .6,
+                ease: 'easeOut',
             },
         }
     }
@@ -36,10 +39,12 @@ export const animAppearParent = ( options ) => {
 export const animAppearChild  = ( options ) => {
 
     options = {
+        mobile: false,
         movement: true,
         direction: 'fromRight',
         opacity: false,
         distance: 200,
+        duration: .9,
         ...options
     }
 
@@ -50,6 +55,10 @@ export const animAppearChild  = ( options ) => {
         case !options.movement:
             x = 0;
             y = 0;
+            break;
+        case options.mobile:
+            x = 0;
+            y = 20;
             break;
         case options.direction == 'fromRight':
             x = options.distance;
@@ -82,7 +91,7 @@ export const animAppearChild  = ( options ) => {
             y: 0,
             opacity: 1,
             transition: {
-                duration: .6
+                duration: options.duration,
             }
         }
     }

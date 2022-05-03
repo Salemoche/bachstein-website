@@ -9,9 +9,7 @@ export const ProjectsStyles = styled(ContentStyles)`
         grid-column-end: 12;
         display: flex;
         flex-direction: column;
-    }
-
-    
+    }    
 
     @media screen and ( max-width: ${ props => props.theme.breakpointL }px) {
 

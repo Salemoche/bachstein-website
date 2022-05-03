@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 
 // Data
+import { useSnapshot } from 'valtio';
 import { useDeviceDetector } from '../utils/hooks';
 import { defaultStore } from '../state/store';
 import { useCookies } from 'react-cookie'
@@ -25,14 +26,15 @@ import DebugControls from '../components/3_elements/debug/debug-controls.compone
 // }
 
 function MyApp({ Component, pageProps }) {
+    const state = useSnapshot(defaultStore);
     const router = useRouter()
     const deviceDetector = useDeviceDetector();
     const [showLoading, setShowLoading] = useState(true)
-    const { scrollY, scrollYProgress } = useViewportScroll();
+    const viewPortScroll = useViewportScroll()
+    const { scrollY, scrollYProgress } = viewPortScroll;
     const [cookies, setCookie, removeCookie] = useCookies(['bs-agrees-to-cookies']);
     const [showCookieNotice, setShowCookieNotice] = useState(false)
     const [theme, setTheme] = useState( defaultStore.theme.negative ? invertedTheme : baseTheme )
-
     
     /**========================
     *	Cookies
@@ -80,34 +82,6 @@ function MyApp({ Component, pageProps }) {
         defaultStore.router = router;
         defaultStore.current.route = router.route;
     }, [ router ])
-
-
-    
-    /**========================
-    *	Scroll
-    *========================*/
-    
-    useEffect(() => {
-
-        const unsubscribeScrollY = scrollY.onChange( y => updateScrollY(y));
-        const unsubscribeScrollYProgress = scrollYProgress.onChange( y => updateScrollYProgress(y));
-
-        // TODO
-        // Scrollbar.init(document.querySelector('body'), {});
-
-        return () => {
-            unsubscribeScrollY();
-            unsubscribeScrollYProgress();
-        }
-    }, [])
-
-    const updateScrollY = (y) => {
-        defaultStore.current.scrollY = y;
-    }
-
-    const updateScrollYProgress = (y) => {
-        defaultStore.current.scrollYProgress = y;
-    }
 
     
     /**========================

@@ -17,6 +17,16 @@ export const HeaderStyles = styled('div')`
 
         .bs-image {
             object-fit: cover;
+
+            span {
+                height: 100% !important;
+                width: 100% !important;
+            }
+
+            img {
+                object-fit: cover;
+                object-position: bottom left;
+            }
         }
     }
 
@@ -41,6 +51,14 @@ export const HeaderStyles = styled('div')`
             mix-blend-mode: difference;
             font-size: ${ props => props.theme.fontSizeXXL };
             line-height: 0.7;
+        }
+    }
+
+    @media screen and ( min-width: ${ props => props.theme.breakpointXL }px) {
+        .bs-home-header__background {
+            .bs-image img {
+                object-position: bottom left;
+            }
         }
     }
 

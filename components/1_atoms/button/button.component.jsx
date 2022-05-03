@@ -6,23 +6,25 @@ import { defaultStore } from '../../../state/store';
 // Style
 import { ButtonStyles, ButtonLinkStyles } from './button.styles';
 import Link from 'next/link';
+import { IconStyles } from '../../../styles/global-components.styles';
 
 const ButtonComponent = ({ label, handleClick, className, link, icon = null }) => {
 
     if ( link ) {
         return (
-            <Link href={link} className={ `bs-button ${className}` } onClick={ handleClick } >
-                <a className="bs-button">{label}</a>
-            </Link>
+            <ButtonStyles className={ `bs-button ${className}` } icon={!!icon}>
+                <span className="bs-button__content">
+                    <Link href={link} className={ `bs-button__content` } onClick={ handleClick } >{label}</Link>
+                </span>
+                { icon && <IconStyles className="bs-icon" dangerouslySetInnerHTML={{ __html: icon }}/>}
+            </ButtonStyles>
         )
     } else {
 
         return (
-            <ButtonStyles className={ `bs-button ${className}` } onClick={ handleClick } >
-                <>
-                    { label }
-                    { icon }
-                </>
+            <ButtonStyles className={ `bs-button ${className}` } onClick={ handleClick } icon={!!icon}>
+                <span className="bs-button__content">{ label }</span>
+                { icon && <IconStyles className="bs-icon" dangerouslySetInnerHTML={{ __html: icon }}/>}
             </ButtonStyles>
         )
     }

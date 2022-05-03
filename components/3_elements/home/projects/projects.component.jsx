@@ -9,13 +9,13 @@ import ProjectComponent from '../../../2_molecules/project/project.component';
 
 // Animation
 import { motion } from 'framer-motion';
-import { animAppearChild } from '../../../../styles/animation';
-import { useAppearAnimation } from '../../../../utils/hooks';
+import { useAppearParent } from '../../../../utils/hooks';
 
 const ProjectsComponent = ({ title, projects }) => {
     return (
         <ProjectsStyles className="bs-projects">
-            { useAppearAnimation(
+            { useAppearParent(
+                {},
                 <GridStyles gridColumns={12}>
                     <h2 className="bs-projects__title">{ sanitizeHtml(title) }</h2>
                     { projects?.map( (project, i) => {

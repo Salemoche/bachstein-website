@@ -15,14 +15,15 @@ import ImageComponent from '../../../1_atoms/image/image.component';
 
 // Animation
 import { motion } from 'framer-motion';
-import { animAppearChild, animAppearParent, viewport } from '../../../../styles/animation';
-import { useAppearAnimation } from '../../../../utils/hooks';
+import { useAppearParent } from '../../../../utils/hooks';
+import { appearChild } from '../../../../utils/helpers';
 
 const IntroComponent = ({ image, title, text }) => {
 
     return (
         <IntroStyles className="bs-intro">
-            { useAppearAnimation(
+            { useAppearParent(
+                {},
                 <GridStyles gridColumns={12}>
                     <motion.div 
                         className="bs-intro__image" 
@@ -30,13 +31,13 @@ const IntroComponent = ({ image, title, text }) => {
                             transform: 'translateX(0px)',
                             opacity: 1
                         }}
-                        variants={ animAppearChild() }
+                        variants={ appearChild() }
                     >
                         { image && <ImageComponent image={ image } /> }
                     </motion.div>
                     <motion.div 
                         className="bs-intro__text" 
-                        variants={ animAppearChild() }
+                        variants={ appearChild() }
                     >
                         <h2>{ title }</h2>
                         <div dangerouslySetInnerHTML={{ __html: sanitizeHtml( text ) }}></div>

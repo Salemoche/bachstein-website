@@ -11,22 +11,24 @@ import { GridStyles } from '../../../../styles/global-components.styles';
 
 // Components
 import ImageComponent from '../../../1_atoms/image/image.component';
-import { useAppearAnimation } from '../../../../utils/hooks';
-import { animAppearChild } from '../../../../styles/animation';
+import { useAppearParent } from '../../../../utils/hooks';
 import { motion } from 'framer-motion';
+import { appearChild } from '../../../../utils/helpers';
+import { animAppearChild } from '../../../../styles/animation';
 
 const ClientsComponent = ({ title, clients }) => {
 
 
     return (
         <ClientsStyles className="bs-clients">
-            { useAppearAnimation(
+            { useAppearParent(
+                { stagger: 0.15 },
                 <GridStyles gridColumns={12}>
                     <h2 className="bs-clients__title">{ sanitizeHtml(title) }</h2>
                     { clients.map( (client, i) => {
                         return (
                             <motion.a 
-                                variants={ animAppearChild({ movement: false, opacity: true })} 
+                                variants={ appearChild({ movement: false, opacity: true, duration: 0.3 })} 
                                 whileHover={{ scale: 1.2, transition: { duration: 0.1 } }}
                                 href={client.acfKunden.url}
                                 target="_blank"

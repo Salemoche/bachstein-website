@@ -15,7 +15,7 @@ const DebugControls = ({ handleClick }) => {
         }
     }
 
-    console.log(state)
+    // console.log(state)
 
     return (
         <DebugControlsStyles 

@@ -39,7 +39,7 @@ export const ClientsStyles = styled(ContentStyles)`
         }
 
         &:hover {
-            transform: scale(1.03);
+            color: ${ props => props.theme.colors.blue[1] };
         }
     }
 

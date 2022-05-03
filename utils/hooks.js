@@ -8,7 +8,7 @@ import { defaultStore } from '../state/store';
 import LightboxComponent from '../components/3_elements/lightbox/lightbox.component';
 
 // Animation
-import { motion } from 'framer-motion';
+import { motion, useViewportScroll } from 'framer-motion';
 import { animAppearChild, animAppearParent, viewport } from '../styles/animation';
 
 export const useDeviceDetector = () => {
@@ -258,21 +258,83 @@ export const useTranslation = ( translations ) => {
     return translated;
 }
 
-export const useAppearAnimation = ( content ) => {
+export const useAppearParent = ( options, content ) => {
 
     const { mode } = defaultStore.deviceDetector;
+
+    options = {
+        mobile: mode == 'mobile',
+        ...options
+    }
 
     return (
 
         <motion.div
-        variants={ animAppearParent() }
+        variants={ animAppearParent( options ) }
         initial='hidden'
         // animate={ mode == 'mobile' && 'show'}
         whileInView='show'
         viewport={ viewport() }
-        onViewportEnter={() => {console.log('enter')}}
     >
         { content }
     </motion.div>
     )
+}
+
+// export const useAppearChild = ( options ) => {
+
+//     const { mode } = defaultStore.deviceDetector;
+
+//     options = {
+//         mobile: mode == 'mobile',
+//         ...options
+//     }
+
+//     return animAppearChild( options )
+// }
+
+
+/**========================
+*	Scrolled in View
+*========================*/
+// 1. use scrolledInView.ref as ref for the element
+// 2. useEffect Hook for the scrolledInView / scrolledInViewProgress values
+
+export const useScrolledInView = () => {
+    const ref = useRef(null)
+
+    const viewPortScroll = useViewportScroll();
+    // const [scroll, setScroll] = useState({})
+    const scroll = useRef()
+    const scrollMargin = 200;
+    let scrolledInViewDist;
+    let scrolledPast;
+    let scrolledInViewProgress;
+
+    const scrollFunction = (scrollY) => {
+
+        if ( !ref.current ) return 
+        
+        scrolledInViewDist = -(ref.current.offsetTop - (scrollY + window.innerHeight)) - scrollMargin;
+        scrolledPast = ref.current.offsetHeight - scrolledInViewDist;
+        const maxScrollDist = window.innerHeight - scrollMargin * 2;
+        scrolledInViewProgress = scrolledInViewDist / maxScrollDist;
+
+        if ( scrolledInViewDist > 0 && scrollY + scrollMargin < ref.current.offsetTop) {
+            scroll.current = {
+                scrolledInView: scrolledInViewDist.toFixed(2),
+                scrolledInViewProgress: scrolledInViewProgress.toFixed(2),
+            }
+        }
+    }
+
+    useEffect(() => {
+        viewPortScroll?.scrollY.onChange(e => scrollFunction(e));
+    }, [])
+
+    return {
+        ref,
+        ...scroll
+    }
+
 }

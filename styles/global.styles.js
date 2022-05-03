@@ -78,21 +78,26 @@ src: local(''),
         font-size: ${ props => props.theme.fontSizeS };
         font-family: ${ props => props.theme.fontFamilies[0] };
         color: ${ props => props.theme.fontColor };
+        overscroll-behavior-y: none;
     }
 
     main {
+        position: relative;
+        background-color: ${ props => props.theme.backgroundColor };
         width: 100%;
         margin-bottom: ${ props => props.theme.spaceL }px;
+        margin-bottom: 250px;
+        z-index: 2;
     }
 
     html {
-        overflow: hidden;
+        overflow-x: hidden;
     }
 
     body {
         overflow-x: hidden;
         scroll-behavior: smooth;
-        height: 100vh;
+        min-height: 100vh;
         background-color: ${ props => props.theme.backgroundColor };
         font-size: ${ props => props.theme.fontSizeM };
     }
@@ -111,6 +116,8 @@ src: local(''),
     h6 {
         margin: 0;
         font-family: ${ props => props.theme.fontFamilies[1] };
+        color: ${ props => props.theme.fontColor };
+        mix-blend-mode: difference;
     }
 
     h1 {
@@ -170,6 +177,29 @@ src: local(''),
         }
     }
 
+    @media screen and ( max-width: ${ props => props.theme.breakpointS }px) {
+
+        h1 {
+            font-size: ${ props => props.theme.fontSizeL };
+            ${'' /* margin-bottom: ${ props => props.theme.spaceS }px; */}
+        }
+
+        h2 {
+            font-size: ${ props => props.theme.fontSizeL };
+            ${'' /* margin-bottom: ${ props => props.theme.spaceS }px; */}
+        }
+
+        h3 {
+            font-size: ${ props => props.theme.fontSizeM };
+            ${'' /* margin-bottom: ${ props => props.theme.spaceXS }px; */}
+        }
+
+        h4 {
+            font-size: ${ props => props.theme.fontSizeS };
+            ${'' /* margin-bottom: ${ props => props.theme.spaceXS }px; */}
+        }
+    }
+
     p,
     span {
         margin: 0;
@@ -218,17 +248,30 @@ src: local(''),
         cursor: pointer;
         background: black;
         color: white;
-        border-radius: ${ props => props.theme.borderRadiusM };
+        border-radius: ${ props => props.theme.borderRadiusL };
         padding: ${ props => props.theme.spaceXS }px ${ props => props.theme.spaceS }px;
         text-decoration: none;
         transition: background ${ props => props.theme.transition[2] };
-        display: inline-block;
         background: ${ props => props.theme.colors.blue[1] };
-        border: none;
+        border: 1px solid ${ props => props.theme.colors.blue[1] };
+
+        a {
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+
+            &:hover {
+                color: ${ props => props.theme.colors.blue[1] };
+            }
+        }
 
         &:hover {
-            background: ${ props => props.theme.colors.blue[2] };
-            color: white;
+            background: ${ props => props.theme.colors.black };
+            color: ${ props => props.theme.colors.blue[1] };
+        }
+
+        @media screen and ( max-width: ${ props => props.theme.breakpointL }px) {
+            margin: 0 auto;
         }
     }
     

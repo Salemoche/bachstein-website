@@ -11,8 +11,9 @@ import { GridStyles } from '../../../styles/global-components.styles';
 
 // Components
 import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import ImageComponent from '../../1_atoms/image/image.component';
 
-const FooterComponent = () => {
+const FooterComponent = ( image ) => {
 
     const footerRef = useRef(null);
     const mapRef = useRef(null);
@@ -30,7 +31,10 @@ const FooterComponent = () => {
 
     return (
         <FooterStyles ref={ footerRef } className="footer">
-            <GridStyles gridColumns={12}>
+            { image.image && <div className="bs-footer-background">
+                <ImageComponent image={ image.image }/>
+            </div>}
+            <GridStyles className="bs-footer__container" gridColumns={12}>
                 <div className="bs-footer__info">
                     <div className="bs-footer__info__wordmark wordmark">bachstein</div> 
                     <p>Agentur für Web Design</p>

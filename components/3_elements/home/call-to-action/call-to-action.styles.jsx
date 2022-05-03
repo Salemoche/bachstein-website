@@ -19,9 +19,14 @@ export const CallToActionStyles = styled(ContentStyles)`
         }
     }
 
-    .bs-cta__image {
+    .bs-cta__medium {
         grid-column-start: 7;
         grid-column-end: 13;
+        position: relative;
+
+        .bs-cta-video {
+            width: 100%;
+        }
     }
 
     @media screen and ( max-width: ${ props => props.theme.breakpointL }px) {
@@ -29,9 +34,11 @@ export const CallToActionStyles = styled(ContentStyles)`
         .bs-cta__text {
             grid-column-start: 1;
             grid-column-end: 6;
+            margin-bottom: ${ props => props.theme.spaceM }px;
+            
         }
 
-        .bs-cta__image {
+        .bs-cta__medium {
             grid-column-start: 7;
             grid-column-end: 13;
         }
@@ -44,7 +51,7 @@ export const CallToActionStyles = styled(ContentStyles)`
             grid-column-end: 13;
         }
 
-        .bs-cta__image {
+        .bs-cta__medium {
             grid-column-start: 1;
             grid-column-end: 13;
             margin-bottom: ${ props => props.theme.spaceS }px;

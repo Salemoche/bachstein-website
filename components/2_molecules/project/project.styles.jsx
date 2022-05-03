@@ -7,6 +7,7 @@ export const ProjectStyles = styled('a')`
     display: flex;
     align-items: center;   
     position: relative;  
+    background: ${ props => props.isHovered ? props.theme.colors.blue[1] : props.theme.backgroundColor };
     
     &:last-child {
         display: none;
@@ -14,6 +15,7 @@ export const ProjectStyles = styled('a')`
 
     .bs-image {
         display: inline-grid;
+        mix-blend-mode: difference;
     }
 
     .bs-projects__info {
@@ -23,14 +25,19 @@ export const ProjectStyles = styled('a')`
         left: 0;
         width: 100%;
         height: 100%;
-        background: ${ props => props.theme.colors.blue[1] };
         color: ${ props => props.theme.fontColorInverted };
         color: white;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         padding: ${ props => props.theme.spaceM }px;
         transition: opacity ${ props => props.theme.transition[2] };
         opacity: 0;
+        /* mix-blend-mode: difference; */
+
+        h4 {
+            mix-blend-mode: unset;
+            margin-bottom: 0;
+        }
 
         /* ${ props => {
             if ( props.mode === 'mobile' ) {

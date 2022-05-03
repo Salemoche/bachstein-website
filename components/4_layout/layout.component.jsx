@@ -22,7 +22,8 @@ const LayoutComponent = ({
     footerMenu = {},
     baseUrl,
     siteName,
-    content
+    content,
+    settings
 }) => {
 
     const { footerHeight, headerHeight, deviceDetector } = useSnapshot( defaultStore );
@@ -48,7 +49,7 @@ const LayoutComponent = ({
                 { children }
             </main>
             { hasFooter &&
-                <FooterComponent />
+                <FooterComponent image={ settings ? settings.footerImage : null} />
             }
         </>
     )

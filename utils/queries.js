@@ -453,6 +453,21 @@ export const PAGE_QUERY = () => {
                         }
                     }
                 }
+                footerImage {
+                    altText
+                    mediaItemUrl
+                    srcSet
+                    mediaDetails {
+                        height
+                        width
+                        sizes {
+                            sourceUrl
+                            name
+                            height
+                            width
+                        }
+                    }
+                }
             }
         }
         menus {
