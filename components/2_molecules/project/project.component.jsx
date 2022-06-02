@@ -48,6 +48,8 @@ const ProjectComponent = ({ project, index }) => {
                     whileHover={ defaultStore.deviceDetector.mode == 'mobile' ? 'hidden' : 'show' }
                     onMouseEnter={() => {setIsHovered(true)}}
                     onMouseLeave={() => {setIsHovered(false)}}
+                    onViewportEnter={() => { if (defaultStore.deviceDetector.mode == 'mobile') setIsHovered(true)}}
+                    onViewportLeave={() => { if (defaultStore.deviceDetector.mode == 'mobile') setIsHovered(false)}}
                     viewport={{ margin: '-200px', once: false }}
                 >
                     <div className="bs-projects__info__background"></div>

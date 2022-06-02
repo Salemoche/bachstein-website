@@ -7,7 +7,7 @@ export const ProjectStyles = styled('a')`
     display: flex;
     align-items: center;   
     position: relative;  
-    background: ${ props => props.isHovered ? props.theme.colors.blue[1] : props.theme.backgroundColor };
+    background: ${ props => props.isHovered ? props.theme.colors.blue[1] : props.theme.black };
     
     &:last-child {
         display: none;

@@ -19,7 +19,7 @@ export const ButtonStyles = styled('button')`
         height: 100%;
         display: inline-block;
         padding: ${ props => props.theme.spaceXS }px ${ props => props.theme.spaceS }px;
-        padding-right: ${ props => props.icon ? '56px' : 0 };
+        padding-right: ${ props => props.icon ? '56px' : props.theme.spaceS }px };
     }
 
     .bs-icon {

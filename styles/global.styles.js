@@ -85,9 +85,13 @@ src: local(''),
         position: relative;
         background-color: ${ props => props.theme.backgroundColor };
         width: 100%;
-        margin-bottom: ${ props => props.theme.spaceL }px;
         margin-bottom: 250px;
         z-index: 2;
+
+    @media screen and ( max-width: ${ props => props.theme.breakpointM }px) {
+        padding-bottom: ${ props => props.theme.spaceM }px;
+    }
+
     }
 
     html {

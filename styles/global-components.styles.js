@@ -202,4 +202,5 @@ export const IconStyles = styled('div')`
 
 export const GutenbergPageStyles = styled.div`
     margin-top: ${ props => props.theme.spaceL }px;
+    padding-bottom: ${ props => props.theme.spaceM }px;
 `
